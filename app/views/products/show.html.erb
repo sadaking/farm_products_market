@@ -1,0 +1,11 @@
+<h1>商品詳細画面</h1>
+<p>
+    <%= image_tag @product.image %>
+</p>
+<p>タイトル: <%= @product.title %></p>
+<p>価格:<%= @product.price %></p>
+<p>在庫数:<%= @product.quantity %></p>
+<p>詳細:<%= @product.content %></p>
+<p>収穫日<%= @product.harvest_date.strftime("%Y年%m月%d日")%></p>
+<p>農園名<%= @product.farm_name %></p>
+<p>運営者先住所<%= @product.farm_street_address %>
