@@ -1,0 +1,54 @@
+<%= form_with(model: @product, local: true)do |form| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @product.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title %><br />
+    <%= form.text_field :title, autoformocus: true %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :price %><br />
+    <%= form.text_field :price, autoformocus: true %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :quantity %><br />
+    <%= form.text_field :quantity, autoformocus: true %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :image %><br />
+    <%= form.file_field :image %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :content %><br />
+    <%= form.text_field :content, autoformocus: true %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :harvest_date %><br />
+    <%= form.date_field :harvest_date %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :farm_name %><br />
+    <%= form.text_field :farm_name, autoformocus: true %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :farm_street_address %><br />
+    <%= form.text_field :farm_street_address, autoformocus: true %>
+  </div>
+  <br>
+  <%= form.submit name="sell" %>
+<% end %>
