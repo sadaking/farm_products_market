@@ -1,0 +1,27 @@
+<h2>商品一覧</h2>
+<p><%= notice %></p>
+
+<table>
+  <tr>
+    <th>写真</th>
+    <th>タイトル</th>
+    <th>値段</th>
+    <th>在庫数</th>
+    <th>内容</th>
+  </tr>
+<% @products.each do |product|%>
+  <tr>
+    <td><%= image_tag product.image %></td>
+    <td><%= product.title %></td>
+    <td><%= product.price %></td>
+    <td><%= product.quantity %></td>
+    <td><%= product.content %></td>
+    <!-- <td><%= product.harvest_date.strftime("%Y年%m月%d日")%></td>
+    <td><%= product.farm_name %></td>
+    <td><%= product.farm_street_address %></td> -->
+    <td><%= link_to '詳細', product_path(product.id) %></td>
+    <td><%= link_to "編集", edit_product_path(product.id) %></td>
+    <td><%= link_to '削除', product_path(product.id), method: :delete , data: { confirm: '本当に削除していいですか？' } %></td>
+  </tr>
+<% end %>
+</table>
