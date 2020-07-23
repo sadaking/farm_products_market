@@ -1,5 +1,7 @@
 {
   "name": "farm_products_market",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.5.1"
+  }
 }
