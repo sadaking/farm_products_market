@@ -30,8 +30,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.string :postal_code, null: false
       t.string :prefecture_code, null: false
-      t.string :city, null: false
-      t.string :building
+      t.string :address_city, null: false
+      t.string :address_street, null: false
+      t.string :address_building
       t.boolean :admin, default: false
 
 

@@ -92,8 +92,9 @@ ActiveRecord::Schema.define(version: 2020_07_21_221033) do
     t.string "name", null: false
     t.string "postal_code", null: false
     t.string "prefecture_code", null: false
-    t.string "city", null: false
-    t.string "building"
+    t.string "address_city", null: false
+    t.string "address_street", null: false
+    t.string "address_building"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

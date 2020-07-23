@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: 'products#index'
   resources :products
   devise_for :producers, controllers: {
@@ -13,6 +12,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :products
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

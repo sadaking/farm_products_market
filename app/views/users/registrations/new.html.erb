@@ -19,10 +19,23 @@
   </div>
 
   <div class="field">
-    <%= f.label :prefecture_code %><br>
+    <%= f.label :prefecture_code %><br />
     <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, class: "address" %>
-    <%= f.text_field :city, autofocus: true, placeholder: 'city', class: "address", id:"address_city" %>
-    <%= f.text_field :building, autofocus: true, placeholder: 'building', class: "address", id: "address_street" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address_city %><br />
+    <%= f.text_field :address_city, autofocus: true, autocomplete: "address_city", id: "address_city" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address_street %><br />
+    <%= f.text_field :address_street, autofocus: true, autocomplete: "address_street", placeholder: 'address_street', id: "address_street" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address_building %><br />
+    <%= f.text_field :address_building, autofocus: true, autocomplete: "address_building", placeholder: 'address_building', id: "address_building" %>
   </div>
 
   <div class="field">
