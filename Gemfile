@@ -38,7 +38,6 @@ gem 'letter_opener_web'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
 gem 'jp_prefecture'
-gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

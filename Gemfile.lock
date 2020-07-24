@@ -277,7 +277,6 @@ DEPENDENCIES
   devise-i18n
   jbuilder (~> 2.5)
   jp_prefecture
-  jquery-rails
   letter_opener_web
   listen (>= 3.0.5, < 3.2)
   mini_magick (~> 4.8)
