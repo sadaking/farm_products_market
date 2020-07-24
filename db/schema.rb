@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_07_21_221033) do
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.string "producer_name", null: false
-    t.string "producter_postal_code", null: false
+    t.string "producer_postal_code", null: false
     t.string "producer_prefecture_code", null: false
     t.string "producer_address_city", null: false
     t.string "producer_address_street", null: false

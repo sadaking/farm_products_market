@@ -28,7 +28,7 @@ class DeviseCreateProducers < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
 
       t.string :producer_name, null: false
-      t.string :producter_postal_code, null: false
+      t.string :producer_postal_code, null: false
       t.string :producer_prefecture_code, null: false
       t.string :producer_address_city, null: false
       t.string :producer_address_street, null: false
