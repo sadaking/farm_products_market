@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-  resources :products
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
