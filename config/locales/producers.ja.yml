@@ -9,13 +9,13 @@ ja:
         current_password: 現在のパスワード
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
-        name: 名前
+        producer_name: 名前
         email: Eメール
-        postal_code: 郵便番号
-        prefecture_code: 都道府県名
-        address_city: 市区町村
-        address_street: 番地
-        address_building: 建物名(ex.ビル名、マンション名等)
+        producer_postal_code: 郵便番号
+        producer_prefecture_code: 都道府県名
+        producer_address_city: 市区町村
+        producer_address_street: 番地
+        producer_address_building: 建物名(ex.ビル名、マンション名等)
         encrypted_password: 暗号化パスワード
         failed_attempts: 失敗したログイン試行回数
         last_sign_in_at: 最終ログイン時刻
