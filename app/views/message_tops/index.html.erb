@@ -1,32 +1,32 @@
-<h1>チャットサンプル</h1>
-<!--Userでログインしてたら-->
+<h2>メッセージ先一覧画面</h2>
 <% if user_signed_in? %>
-  ~<%= current_user.name %>がログインしてます~
-  <%= link_to "ログアウト", destroy_user_session_path ,:method => :delete %>
+  <h3>生産者一覧</h3>
   <br>
-  <h2>生産者一覧</h2>
-  <br>
-
   <% @producers.each do |producer| %>
-    <%= producer.name %>
+    <%= producer.producer_name %>
+    <% if @producer_ids.include?(producer.id) %>
+      <br>
+      <%= link_to "チャットへ", room_path(current_user.rooms.find_by(producer_id: producer.id)) %><br>
+    <% else %>
+      <%= form_for Room.new do |f| %>
+        <%= f.hidden_field :producer_id, :value => producer.id %>
+        <%= f.submit %>
+      <% end %>
+    <% end %>
   <% end %>
-<!--producerでログインしてたら-->
 <% elsif producer_signed_in? %>
-  ~<%= current_producer.name %>がログインしてます~
-  <%= link_to "ログアウト", destroy_producer_session_path ,:method => :delete %>
-  <br>
-  <h2>ユーザー一覧</h2>
+  <h3>ユーザー一覧</h3>
   <br>
   <% @users.each do |user| %>
     <%= user.name %>
+    <% if @user_ids.include?(user.id) %>
+      <br>
+      <%= link_to "チャットへ", room_path(current_producer.rooms.find_by(user_id: user.id)) %><br>
+    <% else %>
+      <%= form_for Room.new do |f| %>
+        <%= f.hidden_field :user_id, :value => user.id %>
+        <%= f.submit %>
+      <% end %>
+    <% end %>
   <% end %>
-
-<!--ログインしてなかったら-->
-<% else %>
-  <h3>ユーザー</h3>
-  <%= link_to "ログイン", new_user_session_path %>
-  <%= link_to "新規登録", new_user_registration_path %>
-  <h3>ショップ</h3>
-  <%= link_to "ログイン", new_producer_session_path %>
-  <%= link_to "新規登録", new_producer_registration_path %>
 <% end %>
