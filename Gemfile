@@ -32,6 +32,12 @@ gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'devise'
+gem 'devise-i18n'
+gem 'letter_opener_web'
+gem 'rails_admin', '~> 2.0'
+gem 'cancancan'
+gem 'jp_prefecture'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

@@ -7,9 +7,36 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
   <body>
+
+    <header>
+          <% if user_signed_in? %>
+            <li class="nav-item active">
+              ~<%= current_user.name %>がログインしてます~
+            </li>
+            <li class="nav-item active">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            </li>
+          <% elsif producer_signed_in? %>
+            <li class="nav-item active">
+              ~<%= current_producer.producer_name %>がログインしてます~
+            </li>
+            <li class="nav-item active">
+              <%= link_to "ログアウト", destroy_producer_session_path ,:method => :delete  %>
+            </li>
+          <% else %>
+            <li class="nav-item active">
+              <%= link_to "ユーザー新規登録", new_user_registration_path  %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "ログイン", new_user_session_path %>
+            </li>
+          <% end %>
+      </header>
+
     <%= yield %>
   </body>
 </html>

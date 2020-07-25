@@ -1,4 +1,8 @@
-<h2>商品一覧</h2>
+<% if current_user.try(:admin?) %>
+  <h2>商品一覧(管理者用)</h2>
+<% else %>
+  <h2>商品一覧</h2>
+<% end %>
 <p><%= notice %></p>
 
 <table>
