@@ -4,15 +4,16 @@ class MessageTopsController < ApplicationController
       @producers = Producer.all
       rooms = current_user.rooms
       @producer_ids = []
-      rooms.each do |room|
-        @producer_ids << room.producer_id
+      rooms.each do |r|
+        @producer_ids << r.producer_id
       end
+
     elsif producer_signed_in?
       @users = User.all
       rooms = current_producer.rooms
       @user_ids = []
-      rooms.each do |room|
-        @user_ids << room.user_id
+      rooms.each do |r|
+        @user_ids << r.user_id
       end
     end
   end
