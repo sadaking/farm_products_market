@@ -1,0 +1,36 @@
+<% if user_signed_in? %>
+  <h2><% @producer.producer_name %>とのトークルーム</h2>
+  <div class="chat-field">
+    <% @messages.each do |message| %>
+      <% if message.is_user %>
+        <div class="right-message">
+          <%= message.content %>
+        </div>
+      <% else %>
+        <div class="left-message">
+          <%= message.content %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% elsif producer_signed_in?%>
+  <h2><% @user.name %>とのチャットルーム</h2>
+  <div class="chat-field">
+    <% @messages.each do |message| %>
+      <% if message.is_user %>
+        <div class="left-message">
+          <%= message.content %>
+        </div>
+      <% else %>
+        <div class="right-message">
+          <%= message.content %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= form_for [@room, @message] do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit "メッセージを送る"%>
+<% end %>
