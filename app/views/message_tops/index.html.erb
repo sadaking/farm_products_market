@@ -1,0 +1,32 @@
+<h1>チャットサンプル</h1>
+<!--Userでログインしてたら-->
+<% if user_signed_in? %>
+  ~<%= current_user.name %>がログインしてます~
+  <%= link_to "ログアウト", destroy_user_session_path ,:method => :delete %>
+  <br>
+  <h2>生産者一覧</h2>
+  <br>
+
+  <% @producers.each do |producer| %>
+    <%= producer.name %>
+  <% end %>
+<!--producerでログインしてたら-->
+<% elsif producer_signed_in? %>
+  ~<%= current_producer.name %>がログインしてます~
+  <%= link_to "ログアウト", destroy_producer_session_path ,:method => :delete %>
+  <br>
+  <h2>ユーザー一覧</h2>
+  <br>
+  <% @users.each do |user| %>
+    <%= user.name %>
+  <% end %>
+
+<!--ログインしてなかったら-->
+<% else %>
+  <h3>ユーザー</h3>
+  <%= link_to "ログイン", new_user_session_path %>
+  <%= link_to "新規登録", new_user_registration_path %>
+  <h3>ショップ</h3>
+  <%= link_to "ログイン", new_producer_session_path %>
+  <%= link_to "新規登録", new_producer_registration_path %>
+<% end %>
