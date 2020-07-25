@@ -20,12 +20,18 @@
             <li class="nav-item active">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             </li>
+            <li class="nav-item active">
+              <%= link_to "生産者とのメッセージはこちら", message_tops_path%>
+            </li>
           <% elsif producer_signed_in? %>
             <li class="nav-item active">
               ~<%= current_producer.producer_name %>がログインしてます~
             </li>
             <li class="nav-item active">
               <%= link_to "ログアウト", destroy_producer_session_path ,:method => :delete  %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "ユーザーとのメッセージはこちら", message_tops_path%>
             </li>
           <% else %>
             <li class="nav-item active">
@@ -35,6 +41,9 @@
               <%= link_to "ログイン", new_user_session_path %>
             </li>
           <% end %>
+          <li class="nav-item active">
+            <%= link_to "生産者新規登録ぜひぜひ", new_producer_registration_path %>
+          </li>
       </header>
 
     <%= yield %>

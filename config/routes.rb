@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'products#index'
   resources :products
+  resources :message_tops, :only => [:index]
+
   devise_for :producers, controllers: {
     sessions:      'producers/sessions',
     passwords:     'producers/passwords',
@@ -16,5 +18,9 @@ Rails.application.routes.draw do
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
+  resources :rooms, :only => [:show, :create] do
+    resources :messages, :only => [:create]
   end
 end

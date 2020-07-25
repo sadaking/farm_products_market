@@ -1,0 +1,32 @@
+<h2>メッセージ先一覧画面</h2>
+<% if user_signed_in? %>
+  <h3>生産者一覧</h3>
+  <br>
+  <% @producers.each do |producer| %>
+    <%= producer.producer_name %>
+    <% if @producer_ids.include?(producer.id) %>
+      <br>
+      <%= link_to "チャットへ", room_path(current_user.rooms.find_by(producer_id: producer.id)) %><br>
+    <% else %>
+      <%= form_for Room.new do |f| %>
+        <%= f.hidden_field :producer_id, :value => producer.id %>
+        <%= f.submit %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% elsif producer_signed_in? %>
+  <h3>ユーザー一覧</h3>
+  <br>
+  <% @users.each do |user| %>
+    <%= user.name %>
+    <% if @user_ids.include?(user.id) %>
+      <br>
+      <%= link_to "チャットへ", room_path(current_producer.rooms.find_by(user_id: user.id)) %><br>
+    <% else %>
+      <%= form_for Room.new do |f| %>
+        <%= f.hidden_field :user_id, :value => user.id %>
+        <%= f.submit %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
