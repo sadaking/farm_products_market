@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create]
 
   def index
     @products = Product.all
@@ -20,11 +19,11 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    @comments = @product.comments
+    @comment = @product.comments.build
   end
 
   def edit
-    @product = Product.find(params[:id])
   end
 
   def update
@@ -53,7 +52,8 @@ class ProductsController < ApplicationController
       :category,
       :harvest_date,
       :farm_name,
-      :farm_street_address)
+      :farm_street_address,
+      label_ids: [])
   end
 
   def set_product

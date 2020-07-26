@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Label.create([
+    { name: "新鮮" },
+    { name: "送料無料" },
+    { name: "予約" },
+  ])

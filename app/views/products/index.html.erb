@@ -23,6 +23,11 @@
     <!-- <td><%= product.harvest_date.strftime("%Y年%m月%d日")%></td>
     <td><%= product.farm_name %></td>
     <td><%= product.farm_street_address %></td> -->
+    <td class="task_label">
+      <% product.labels.each do |label| %>
+        <label class='btn-sticky'><%= label.name %></label>
+      <% end %>
+    </td>
     <td><%= link_to '詳細', product_path(product.id) %></td>
     <td><%= link_to "編集", edit_product_path(product.id) %></td>
     <td><%= link_to '削除', product_path(product.id), method: :delete , data: { confirm: '本当に削除していいですか？' } %></td>
