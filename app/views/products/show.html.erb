@@ -9,3 +9,10 @@
 <p>収穫日<%= @product.harvest_date.strftime("%Y年%m月%d日")%></p>
 <p>農園名<%= @product.farm_name %></p>
 <p>運営者先住所<%= @product.farm_street_address %>
+<p class="btn-sticky">
+  <% @product.labels.each do |label| %>
+    <%= label.name %>
+  <% end %>
+</p>
+<br>
+<%= link_to '一覧画面に戻る', products_path %>
