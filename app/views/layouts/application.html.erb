@@ -28,6 +28,9 @@
               ~<%= current_producer.producer_name %>がログインしてます~
             </li>
             <li class="nav-item active">
+              <%= link_to "商品を出品", new_product_path  %>
+            </li>
+            <li class="nav-item active">
               <%= link_to "ログアウト", destroy_producer_session_path ,:method => :delete  %>
             </li>
             <li class="nav-item active">
