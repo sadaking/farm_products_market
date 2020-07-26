@@ -14,40 +14,46 @@
     <%= form.label :title %><br />
     <%= form.text_field :title, autoformocus: true %>
   </div>
-  
+
   <div class="form-group">
     <%= form.label :price %><br />
     <%= form.text_field :price, autoformocus: true %>
   </div>
-  
+
   <div class="form-group">
     <%= form.label :quantity %><br />
     <%= form.text_field :quantity, autoformocus: true %>
   </div>
-  
+
   <div class="form-group">
     <%= form.label :image %><br />
     <%= form.file_field :image %>
   </div>
-  
+
   <div class="form-group">
     <%= form.label :content %><br />
     <%= form.text_field :content, autoformocus: true %>
   </div>
-  
+
   <div class="form-group">
     <%= form.label :harvest_date %><br />
     <%= form.date_field :harvest_date %>
   </div>
-  
+
   <div class="form-group">
     <%= form.label :farm_name %><br />
     <%= form.text_field :farm_name, autoformocus: true %>
   </div>
-  
+
   <div class="form-group">
     <%= form.label :farm_street_address %><br />
     <%= form.text_field :farm_street_address, autoformocus: true %>
+  </div>
+
+  <div class="task_label">
+    <%= form.label :label, "生産品にラベルをつけてみよう↓↓" %>
+    <br>
+    <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
   </div>
   <br>
   <%= form.submit name="sell" %>
