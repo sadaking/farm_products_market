@@ -3,7 +3,18 @@
 <% else %>
   <h2>商品一覧</h2>
 <% end %>
-<p><%= notice %></p>
+<p><%= notice %></p><br />
+
+<div class="form-group">
+  <%= form_with(url:products_path, local: true, method: :get) do |form| %>
+    <%= form.label :title_search, "タイトル検索" %>
+    <%= form.text_field :title %>
+    <%= form.label :label_id_search, "ラベル絞込" %>
+    <%= form.select("label_id", Label.all.pluck(:name, :id), { include_blank:"選択する",include_hidden: false }) %>
+    <%= form.hidden_field :search, value:"true" %>
+    <%= form.submit name="検索する" %>
+  <% end %>
+</div>
 
 <table>
   <tr>
@@ -23,7 +34,7 @@
     <!-- <td><%= product.harvest_date.strftime("%Y年%m月%d日")%></td>
     <td><%= product.farm_name %></td>
     <td><%= product.farm_street_address %></td> -->
-    <td class="task_label">
+    <td class="product_label">
       <% product.labels.each do |label| %>
         <label class='btn-sticky'><%= label.name %></label>
       <% end %>

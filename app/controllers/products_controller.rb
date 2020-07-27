@@ -3,6 +3,14 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    
+    if params[:search].present?
+      @products = Product.title_search(params[:title])
+    end
+
+    if params[:label_id].present?
+      @products = @products.joins(:labels).where(labels: { id: params[:label_id] })
+    end
   end
 
   def new
