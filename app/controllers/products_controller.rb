@@ -1,8 +1,16 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: %i[show edit update destroy]
 
   def index
     @products = Product.all
+    
+    if params[:search].present?
+      @products = Product.title_search(params[:title])
+    end
+
+    if params[:label_id].present?
+      @products = @products.joins(:labels).where(labels: { id: params[:label_id] })
+    end
   end
 
   def new

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_product, only: [:create, :edit, :update]
-  
+  before_action :set_product, only: %i[create edit update]
+
   def create
     @comment = @product.comments.build(comment_params)
     respond_to do |format|
