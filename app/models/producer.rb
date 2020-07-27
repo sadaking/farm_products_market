@@ -5,5 +5,4 @@ class Producer < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :rooms
-  scope :title_search, -> (title) {where("title LIKE ?", "%#{title}%")}
 end
