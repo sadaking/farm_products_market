@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_07_26_064831) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+<<<<<<< HEAD
   create_table "comments", force: :cascade do |t|
     t.bigint "product_id"
     t.text "content"
@@ -44,6 +45,8 @@ ActiveRecord::Schema.define(version: 2020_07_26_064831) do
     t.index ["product_id"], name: "index_comments_on_product_id"
   end
 
+=======
+>>>>>>> b763966daf0b08cd3d211931e804f5f403b91551
   create_table "labelings", force: :cascade do |t|
     t.bigint "product_id"
     t.bigint "label_id"
@@ -149,7 +152,10 @@ ActiveRecord::Schema.define(version: 2020_07_26_064831) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+<<<<<<< HEAD
   add_foreign_key "comments", "products"
+=======
+>>>>>>> b763966daf0b08cd3d211931e804f5f403b91551
   add_foreign_key "labelings", "labels"
   add_foreign_key "labelings", "products"
   add_foreign_key "messages", "rooms"
