@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :products do
     resources :comments
   end
-  resources :message_tops, :only => [:index]
+  resources :message_tops, only: [:index]
 
   devise_for :producers, controllers: {
     sessions:      'producers/sessions',
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
+  resources :users, only: [:show]
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
