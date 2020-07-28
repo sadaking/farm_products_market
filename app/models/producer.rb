@@ -4,5 +4,6 @@ class Producer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
+  has_many :products
   has_many :rooms
 end

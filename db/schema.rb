@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_26_064831) do
+ActiveRecord::Schema.define(version: 2020_07_28_045637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2020_07_26_064831) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-<<<<<<< HEAD
   create_table "comments", force: :cascade do |t|
     t.bigint "product_id"
     t.text "content"
@@ -45,8 +44,6 @@ ActiveRecord::Schema.define(version: 2020_07_26_064831) do
     t.index ["product_id"], name: "index_comments_on_product_id"
   end
 
-=======
->>>>>>> b763966daf0b08cd3d211931e804f5f403b91551
   create_table "labelings", force: :cascade do |t|
     t.bigint "product_id"
     t.bigint "label_id"
@@ -111,6 +108,8 @@ ActiveRecord::Schema.define(version: 2020_07_26_064831) do
     t.string "farm_street_address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "producer_id"
+    t.index ["producer_id"], name: "index_products_on_producer_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -152,13 +151,11 @@ ActiveRecord::Schema.define(version: 2020_07_26_064831) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-<<<<<<< HEAD
   add_foreign_key "comments", "products"
-=======
->>>>>>> b763966daf0b08cd3d211931e804f5f403b91551
   add_foreign_key "labelings", "labels"
   add_foreign_key "labelings", "products"
   add_foreign_key "messages", "rooms"
+  add_foreign_key "products", "producers"
   add_foreign_key "rooms", "producers"
   add_foreign_key "rooms", "users"
 end
