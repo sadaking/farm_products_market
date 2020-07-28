@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    
+
     if params[:search].present?
       @products = Product.title_search(params[:title])
     end
@@ -14,11 +14,11 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    @product = current_producer.products.build
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = current_producer.products.build(product_params)
     if @product.save
       redirect_to products_path, notice: "出品完了しました！"
     else
