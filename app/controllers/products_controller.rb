@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(product_id: @product.id)
     @comments = @product.comments
     @comment = @product.comments.build
   end
