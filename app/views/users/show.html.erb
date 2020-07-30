@@ -1,8 +1,11 @@
 <h1>about me</h1>
 
-<h3>ユーザー名</h3>
+<h4>ユーザー名</h4>
 <%= @user.name %>
-<h3>メールアドレス</h3>
+<h4>メールアドレス</h4>
 <%= @user.email %><br/>
 
+
+
 <%= link_to "編集", edit_user_registration_path %>
+<%= link_to "お気に入りリスト", favorites_path %>
