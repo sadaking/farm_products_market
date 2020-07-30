@@ -38,6 +38,10 @@ gem 'letter_opener_web'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
 gem 'jp_prefecture'
+gem 'bootstrap', '~> 4.5.0'
+gem 'jquery-rails'
+gem 'font-awesome-sass'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
