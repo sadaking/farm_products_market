@@ -1,0 +1,28 @@
+<h2>お気に入り一覧</h2>
+<div class="container">
+  <div class="row">
+    <% @favorites.each  do |favorite| %>
+      <tr>
+        <div class="card mb-3 col-md-6" style="max-width: 500px;">
+          <div class="row no-gutters">
+            <div class="col-lg-6">
+              <%= image_tag favorite.product.image %>
+            </div>
+            <div class="col-lg-6">
+              <div class="card-body">
+              <td>タイトル：<%= favorite.product.title %></td><br/>
+              <td>価格：<%= favorite.product.price %>円</td><br/>
+              <td><%= favorite.product.quantity %>個</td><br/>
+              <td class="product_label">
+                <% favorite.product.labels.each do |label| %>
+                  <label class='btn btn-primary'><%= label.name %></label>
+                <% end %>
+              </td>
+              </div>
+            </div>
+          </div>
+        </div>
+      </tr>
+    <% end %>
+  </div>
+</div>
