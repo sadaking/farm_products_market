@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :products do
     resources :comments
   end
-  resources :message_tops, only: [:index]
+  resources :favorites, only: %i[create destroy index]
+  resources :message_tops, only: %i[index]
 
   devise_for :producers, controllers: {
     sessions:      'producers/sessions',
