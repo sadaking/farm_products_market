@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :products
   resources :products do
     resources :comments
+    post :pay, on: :member
   end
   resources :favorites, only: %i[create destroy index]
   resources :message_tops, only: %i[index]

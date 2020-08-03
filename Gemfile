@@ -41,6 +41,8 @@ gem 'jp_prefecture'
 gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'
 gem 'font-awesome-sass'
+gem 'payjp'
+gem 'dotenv-rails'
 
 
 # Reduces boot times through caching; required in config/boot.rb

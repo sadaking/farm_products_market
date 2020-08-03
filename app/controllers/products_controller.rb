@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[show edit update destroy]
+  before_action :set_product, only: %i[show edit update destroy pay]
 
   def index
     @products = Product.all
@@ -47,6 +47,15 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     redirect_to products_path, notice:"商品を削除しました！"
+  end
+
+  def pay
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    charge = Payjp::Charge.create(
+      :amount => @product.price,
+      :card => params['payjp-token'],
+      :currency => 'jpy',
+    )
   end
 
   private

@@ -23,6 +23,14 @@
     <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
   <% else %>
     <%= link_to 'お気に入りする', favorites_path(product_id: @product.id), method: :post, class: 'btn btn-primary' %>
+  <% end %><br/>
+  <br>
+  <%= form_with local: true, url: pay_product_path do |form| %>
+    <script type="text/javascript"
+      src="https://checkout.pay.jp"
+      class="payjp-button"
+      data-key="<%= ENV["PAYJP_KEY"] %>">
+    </script>
   <% end %>
   <br>
   <p>コメント一覧</p>
