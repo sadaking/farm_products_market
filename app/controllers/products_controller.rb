@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy pay]
+  before_action :authenticate_user!, only: %i[pay]
 
   def index
     @products = Product.all
@@ -27,7 +28,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @favorite = current_user.favorites.find_by(product_id: @product.id)
+    if user_signed_in?
+      @favorite = current_user.favorites.find_by(product_id: @product.id)
+    end
     @comments = @product.comments
     @comment = @product.comments.build
   end
