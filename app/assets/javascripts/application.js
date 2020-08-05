@@ -19,3 +19,39 @@
 //= require jquery/dist/jquery.js
 //= require jquery.jpostal
 //= require_tree .
+
+
+$(function() {
+  $('.slider').slick({
+      dots: true,
+      autoplay:true,
+      autoplaySpeed:4000,
+      centerMode: true,
+      centerPadding: '30px',
+      slidesToShow: 3,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+
+  $('.slick-dots li').on('mouseover', function() {
+    $('.slider').slick('goTo', $(this).index());
+  });
+});
