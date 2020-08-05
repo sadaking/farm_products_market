@@ -1,16 +1,61 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
-.left-message{
-  text-align: left;
+.slick-dots {
+  li {
+    font-size: 20px !important;
+    button:before {
+      content: "🍅" !important;
+      font-size: 18px !important;
+      color: rgb(60, 60, 60) !important;
+    }
+  }
 }
 
-.right-message{
-  text-align: right;
+.talk_room{
+	background-color:rgb(113,147,193);
+	padding:1em;
+	overflow:auto;
+}
+
+/* 左のトークボックス */
+.talk_room .left-message p:before {
+	content: '';
+	position:absolute;
+	top:8px;
+	left:-20px;
+	border: 12px solid transparent;
+	border-right:12px solid white;
+}
+.talk_room .left-message p {
+	display:inline-block;
+	position:relative;
+	background-color:white;
+	border-radius:10px;
+	padding:10px;
+	margin:10 0 0 10px;
+}
+
+/* 右のトークボックス */
+.talk_room .right-messaget p:after {
+	content: '';
+	position:absolute;
+	top:8px;
+	right:-20px;
+	border: 12px solid transparent;
+	border-left:12px solid #85e249;
+}
+.talk_room .right-message p {
+	display:inline-block;
+	position:relative;
+	background-color:#85e249;
+	border-radius:10px;
+	padding:10px;
+	margin:10px 10px 0 0;
 }
 
 
 .btn-sticky {
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 0.1em 0.3em;
   text-decoration: none;
   background: #f7f7f7;
   border-left: solid 6px #ff7c5c;/*左線*/
@@ -23,6 +68,17 @@
   transform: translateY(2px);
 }
 
+/*.background {
+  background-color: #EEEEEE;
+}
+.container {
+  background-color: #FFFFFF;
+}*/
+
+
+
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "slick-theme";
+@import "slick";
