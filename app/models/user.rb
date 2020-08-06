@@ -18,4 +18,5 @@ class User < ApplicationRecord
 
    has_many :rooms
    has_many :favorites, dependent: :destroy
+   has_one_attached :avatar
 end
