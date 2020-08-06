@@ -35,7 +35,7 @@
 }
 
 /* 右のトークボックス */
-.talk_room .right-messaget p:after {
+.talk_room .right-message p:after {
 	content: '';
 	position:absolute;
 	top:8px;
@@ -68,14 +68,25 @@
   transform: translateY(2px);
 }
 
-/*.background {
-  background-color: #EEEEEE;
+.slick-slide img {
+  height: 20vw; //ポイント1
+  max-height: 300px; //ポイント2
+  min-height: 200px; //ポイント2
 }
-.container {
-  background-color: #FFFFFF;
-}*/
 
+.img{
+	border-radius: 50%;
+}
+.image_size{
+  width:  120px;
+  height: 120px;
+}
 
+$theme-colors: (
+  "primary": #996633,
+  "info": #40E0D0,
+  "danger": #ff4136
+);
 
 @import "bootstrap";
 @import "font-awesome-sprockets";
