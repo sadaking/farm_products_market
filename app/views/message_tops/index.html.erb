@@ -1,32 +1,45 @@
-<h2>メッセージ先一覧画面</h2>
-<% if user_signed_in? %>
-  <h3>生産者一覧</h3>
-  <br>
-  <% @producers.each do |producer| %>
-    <%= producer.producer_name %>
-    <% if @producer_ids.include?(producer.id) %>
+<br/>
+<div class="mx-auto p-4 border border-primary rounded" style="border:solid 1px #343a40; max-width:700px;">
+  <h3>メッセージ先一覧画面</h3>
+  <% if user_signed_in? %>
+    <h4>生産者一覧</h4>
+    <br>
+    <% @producers.each do |producer| %>
+      <%= image_tag producer.producer_avatar.variant(combine_options:{gravity: :center,
+                                                          border:'2',
+                                                          resize:"160x160^",
+                                                          crop:"220x220+0+0"}).processed,
+                                                          class: "img border-primary image_size"%>
+      <%= producer.producer_name %>さん
+      <% if @producer_ids.include?(producer.id) %>
+        <br>
+        <%= link_to "チャットへ", room_path(current_user.rooms.find_by(producer_id: producer.id)) , class: " btn btn-primary"%><br><br/>
+      <% else %>
+        <%= form_for Room.new do |f| %>
+          <%= f.hidden_field :producer_id, :value => producer.id %>
+          <%= f.submit %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% elsif producer_signed_in? %>
+    <h4>ユーザー一覧</h4>
+    <br>
+    <% @users.each do |user| %>
+      <%= image_tag user.avatar.variant(combine_options:{gravity: :center,
+                                                          border:'2',
+                                                          resize:"160x160^",
+                                                          crop:"220x220+0+0"}).processed,
+                                                          class: "img border-primary image_size"%>
+      <%= user.name %>さん
+      <% if @user_ids.include?(user.id) %>
       <br>
-      <%= link_to "チャットへ", room_path(current_user.rooms.find_by(producer_id: producer.id)) %><br>
-    <% else %>
-      <%= form_for Room.new do |f| %>
-        <%= f.hidden_field :producer_id, :value => producer.id %>
-        <%= f.submit %>
+        <%= link_to "チャットへ", room_path(current_producer.rooms.find_by(user_id: user.id)) , class: "btn btn-primary"%><br/><br/>
+      <% else %>
+        <%= form_for Room.new do |f| %>
+          <%= f.hidden_field :user_id, :value => user.id %>
+          <%= f.submit %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
-<% elsif producer_signed_in? %>
-  <h3>ユーザー一覧</h3>
-  <br>
-  <% @users.each do |user| %>
-    <%= user.name %>
-    <% if @user_ids.include?(user.id) %>
-      <br>
-      <%= link_to "チャットへ", room_path(current_producer.rooms.find_by(user_id: user.id)) %><br>
-    <% else %>
-      <%= form_for Room.new do |f| %>
-        <%= f.hidden_field :user_id, :value => user.id %>
-        <%= f.submit %>
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
+</div>

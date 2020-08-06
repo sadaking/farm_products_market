@@ -1,36 +1,40 @@
-<% if user_signed_in? %>
-  <h2><% @producer.producer_name %>とのトークルーム</h2>
-  <div class="chat-field">
-    <% @messages.each do |message| %>
-      <% if message.is_user %>
-        <div class="right-message">
-          <%= message.content %>
-        </div>
-      <% else %>
-        <div class="left-message">
-          <%= message.content %>
-        </div>
-      <% end %>
+<div class="container">
+  <h2>チャットルーム</h2><br/>
+  <div class="talk_room">
+    <% if user_signed_in? %>
+      <div class="chat-field">
+        <% @messages.each do |message| %>
+          <% if message.is_user %>
+            <div class="text-md-right right-message">
+              <p><%= message.content %></p>
+            </div>
+          <% else %>
+            <div class="text-md-left left-message">
+              <p><%= message.content %></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% elsif producer_signed_in?%>
+      <div class="chat-field">
+        <% @messages.each do |message| %>
+          <% if message.is_user %>
+            <div class="text-md-left left-message">
+              <p><%= message.content %></p>
+            </div>
+          <% else %>
+            <div class="text-md-right right-message">
+              <p><%= message.content %></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
-  </div>
-<% elsif producer_signed_in?%>
-  <h2><% @user.name %>とのチャットルーム</h2>
-  <div class="chat-field">
-    <% @messages.each do |message| %>
-      <% if message.is_user %>
-        <div class="left-message">
-          <%= message.content %>
-        </div>
-      <% else %>
-        <div class="right-message">
-          <%= message.content %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-<% end %>
 
-<%= form_for [@room, @message] do |f| %>
-  <%= f.text_field :content %>
-  <%= f.submit "メッセージを送る"%>
-<% end %>
+    <br>
+    <%= form_for [@room, @message] do |f| %>
+      <%= f.text_field :content , class: "form-control "%><br/>
+      <%= f.submit "メッセージを送る",class: "btn btn-primary"%>
+    <% end %>
+  </div>
+</div>
