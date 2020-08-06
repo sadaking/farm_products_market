@@ -1,29 +1,27 @@
-<h2>お気に入り一覧</h2>
 <div class="container">
+  <br/>
+  <h3>お気に入り一覧</h3>
+  <br/>
   <div class="row">
-    <% @favorites.each  do |favorite| %>
-      <tr>
-        <div class="card mb-3 col-md-6" style="max-width: 500px;">
-          <div class="row no-gutters">
-            <div class="col-lg-6">
-              <%= image_tag favorite.product.image %>
-            </div>
-            <div class="col-lg-6">
-              <div class="card-body">
-              <td>タイトル：<%= favorite.product.title %></td><br/>
-              <td>価格：<%= favorite.product.price %>円</td><br/>
-              <td><%= favorite.product.quantity %>個</td><br/>
-              <td class="product_label">
-                <% favorite.product.labels.each do |label| %>
-                  <label class='btn btn-primary'><%= label.name %></label>
-                <% end %>
-              </td>
-              <td><%= link_to '詳細', product_path(favorite.product.id) %></td>
-              </div>
-            </div>
-          </div>
+  <% @favorites.each  do |favorite| %>
+    <tr>
+      <div class="card ml-2 mb-2 mr-2 rounded" style="width: 14rem;">
+        <%= image_tag favorite.product.image.variant(combine_options:{gravity: :center,border:'2', resize:"180x180^",crop:"220x220+0+0"}).processed ,class: "rounded"%>
+        <div class="card-body">
+          <h5 class="card-title"><%= favorite.product.title %></h5>
+          <td>商品名：<%= favorite.product.title %></td><br/>
+          <td>価格：<%= favorite.product.price %>円</td><br/>
+          <td><%= favorite.product.quantity %>個</td><br/>
+          <td><%= favorite.product.content %></td><br/>
+          <td><%= link_to '詳細', product_path(favorite.product.id) ,class: "btn btn-primary mb-1" %></td><br/>
+          <td class="product_label">
+            <% favorite.product.labels.each do |label| %>
+              <label class='btn-sticky'><%= label.name %></label>
+            <% end %>
+          </td>
         </div>
-      </tr>
-    <% end %>
+      </div>
+    </tr>
+  <% end %>
   </div>
 </div>
