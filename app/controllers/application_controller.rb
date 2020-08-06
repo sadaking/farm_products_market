@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
                                                         :address_building,
                                                         :admin])
       devise_parameter_sanitizer.permit(:account_update, keys: [:name,
+                                                                :avatar,
                                                                 :postal_code,
                                                                 :prefecture_code,
                                                                 :address_city,
@@ -18,6 +19,7 @@ class ApplicationController < ActionController::Base
                                                                 :address_building])
     elsif resource_class == Producer
       devise_parameter_sanitizer.permit(:sign_up, keys: [:producer_name,
+                                                        :producer_avatar,
                                                         :producer_postal_code,
                                                         :producer_prefecture_code,
                                                         :producer_address_city,
@@ -25,6 +27,7 @@ class ApplicationController < ActionController::Base
                                                         :producer_address_building,
                                                         :admin])
       devise_parameter_sanitizer.permit(:account_update, keys: [:producer_name,
+                                                                :producer_avatar,
                                                                 :producer_postal_code,
                                                                 :producer_prefecture_code,
                                                                 :producer_address_city,
