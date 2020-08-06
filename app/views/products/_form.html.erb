@@ -12,17 +12,17 @@
 
   <div class="form-group">
     <%= form.label :title %><br />
-    <%= form.text_field :title, autoformocus: true %>
+    <%= form.text_field :title, autoformocus: true , class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= form.label :price %><br />
-    <%= form.text_field :price, autoformocus: true %>
+    <%= form.text_field :price, autoformocus: true , class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= form.label :quantity %><br />
-    <%= form.text_field :quantity, autoformocus: true %>
+    <%= form.text_field :quantity, autoformocus: true , class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -32,7 +32,7 @@
 
   <div class="form-group">
     <%= form.label :content %><br />
-    <%= form.text_field :content, autoformocus: true , size: "100x10"%>
+    <%= form.text_field :content, autoformocus: true ,class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -42,12 +42,12 @@
 
   <div class="form-group">
     <%= form.label :farm_name %><br />
-    <%= form.text_field :farm_name, autoformocus: true %>
+    <%= form.text_field :farm_name, autoformocus: true , class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= form.label :farm_street_address %><br />
-    <%= form.text_field :farm_street_address, autoformocus: true %>
+    <%= form.text_field :farm_street_address, autoformocus: true , class: "form-control" %>
   </div>
 
   <div class="task_label">
@@ -56,5 +56,7 @@
     <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
   </div>
   <br>
-  <%= form.submit name="sell" %>
+  <div class="actions mt-4">
+    <%= form.submit name="sell"  , class: "form-control btn btn-info"%>
+  </div>
 <% end %>

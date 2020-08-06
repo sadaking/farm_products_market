@@ -10,10 +10,10 @@
     </div>
   <% end %>
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.label :content %><br/>
+    <%= form.text_area :content ,class: "form-control"%>
   </div>
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mt-4">
+    <%= form.submit class: "form-control btn btn-info" %>
   </div>
 <% end %>

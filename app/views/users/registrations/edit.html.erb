@@ -1,73 +1,85 @@
-<h2><%= t('.title', resource: resource.model_name.human) %></h2>
+<br/>
+<div class="mx-auto p-4 border border-primary rounded" style="border:solid 1px #343a40; max-width:700px;">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <h2><%= t('.title', resource: resource.model_name.human) %></h2>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" , class: "form-control" %>
+    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
-  <% end %>
+    <div class="form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :postal_code %><br />
-    <%= f.text_field :postal_code, autofocus: true, placeholder: 'postal_code', class: "postal_code", id: "address_zipcode" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :avatar %><br />
+      <%= f.file_field :avatar %>
+    </div>
 
-  <div class="field">
-    <%= f.label :prefecture_code %><br />
-    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, class: "address" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :address_city %><br />
-    <%= f.text_field :address_city, autofocus: true, autocomplete: "address_city", id: "address_city" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address_street %><br />
-    <%= f.text_field :address_street, autofocus: true, autocomplete: "address_street", placeholder: 'address_street', id: "address_street" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address_building %><br />
-    <%= f.text_field :address_building, autofocus: true, autocomplete: "address_building", placeholder: 'address_building', id: "address_building" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
     <% end %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="form-row">
+      <div class="form-group">
+        <%= f.label :postal_code %><br />
+        <%= f.text_field :postal_code, autofocus: true, placeholder: 'postal_code', class: "postal_code form-control", id: "address_zipcode" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+      <div class="form-group col">
+        <%= f.label :prefecture_code %><br />
+        <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, class: "address form-control" %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit t('.update') %>
-  </div>
-<% end %>
+    <div class="form-group">
+      <%= f.label :address_city %><br />
+      <%= f.text_field :address_city, autofocus: true, autocomplete: "address_city", id: "address_city" , class: "form-control" %>
+    </div>
 
-<h3><%= t('.cancel_my_account') %></h3>
+    <div class="form-group">
+      <%= f.label :address_street %><br />
+      <%= f.text_field :address_street, autofocus: true, autocomplete: "address_street", placeholder: 'address_street', id: "address_street" , class: "form-control" %>
+    </div>
 
-<p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+    <div class="form-group">
+      <%= f.label :address_building %><br />
+      <%= f.text_field :address_building, autofocus: true, autocomplete: "address_building", placeholder: 'address_building', id: "address_building" , class: "form-control" %>
+    </div>
 
-<%= link_to t('devise.shared.links.back'), :back %>
+    <div class="form-group">
+      <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
+      <%= f.password_field :password, autocomplete: "new-password" , class: "form-control" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" , class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
+      <%= f.password_field :current_password, autocomplete: "current-password" , class: "form-control" %>
+    </div>
+
+    <div class="actions mt-4">
+      <%= f.submit t('.update') , class: "form-control btn btn-info"%>
+    </div>
+  <% end %>
+</div>
+
+<div class="mt-4 mx-auto p-4 border border-primary rounded" style="border:solid 1px #343a40; max-width:700px;">
+  <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete ,class: " btn btn-info"%>
+  <br>
+  <%= link_to t('devise.shared.links.back'), :back ,class: " btn btn-info"%>
+</div>

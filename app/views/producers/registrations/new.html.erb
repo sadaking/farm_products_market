@@ -1,60 +1,73 @@
-<h2><%= t('.sign_up') %></h2>
+<br/>
+<div class="mx-auto p-4 border border-primary rounded" style="border:solid 1px #343a40; max-width:700px;">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <h2><%= t('.sign_up') %></h2>
 
-  <div class="field">
-    <%= f.label :producer_name %><br />
-    <%= f.text_field :producer_name, autofocus: true, autocomplete: "producer_name" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :producer_name %><br />
+      <%= f.text_field :producer_name, autofocus: true, autocomplete: "producer_name" , class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :producer_postal_code %><br />
-    <%= f.text_field :producer_postal_code, autofocus: true, placeholder: 'postal_code', class: "postal_code", id: "address_zipcode" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :producer_prefecture_code %><br />
-    <%= f.collection_select :producer_prefecture_code, JpPrefecture::Prefecture.all, :name, :name, class: "address" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :producer_avatar %><br />
+      <%= f.file_field :producer_avatar %>
+    </div>
 
-  <div class="field">
-    <%= f.label :producer_address_city %><br />
-    <%= f.text_field :producer_address_city, autofocus: true, autocomplete: "producer_address_city", id: "address_city" %>
-  </div>
+    <div class="form-row">
+      <div class="form-group">
+        <%= f.label :producer_postal_code %><br />
+        <%= f.text_field :producer_postal_code, autofocus: true, placeholder: 'postal_code', class: "postal_code form-control", id: "address_zipcode" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :producer_address_street %><br />
-    <%= f.text_field :producer_address_street, autofocus: true, autocomplete: "address_street", placeholder: 'address_street', id: "address_street" %>
-  </div>
+      <div class="form-group col">
+        <%= f.label :producer_prefecture_code %><br />
+        <%= f.collection_select :producer_prefecture_code, JpPrefecture::Prefecture.all, :name, :name, class: "address form-control" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :producer_address_building %><br />
-    <%= f.text_field :producer_address_building, autofocus: true, autocomplete: "producer_address_building", placeholder: 'producer_address_building', id: "address_building" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :producer_address_city %><br />
+      <%= f.text_field :producer_address_city, autofocus: true, autocomplete: "producer_address_city", id: "address_city" , class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :producer_address_street %><br />
+      <%= f.text_field :producer_address_street, autofocus: true, autocomplete: "address_street", placeholder: 'address_street', id: "address_street" , class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :producer_address_building %><br />
+      <%= f.text_field :producer_address_building, autofocus: true, autocomplete: "producer_address_building", placeholder: 'producer_address_building', id: "address_building" , class: "form-control" %>
+    </div>
 
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" , class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password"  ,class: "form-control" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit t('.sign_up') %>
-  </div>
-<% end %>
+    <div class="actions mt-4">
+      <%= f.submit t('.sign_up') , class: "form-control btn btn-info"%>
+    </div>
+  <% end %>
+</div>
 
-<%= render "producers/shared/links" %>
+<div class="mt-4 mx-auto p-4 border border-primary rounded" style="border:solid 1px #343a40; max-width:700px;">
+  <%= render "producers/shared/links" %>
+</div>

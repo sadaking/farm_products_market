@@ -1,4 +1,95 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
+.slick-dots {
+  li {
+    font-size: 20px !important;
+    button:before {
+      content: "🍅" !important;
+      font-size: 18px !important;
+      color: rgb(60, 60, 60) !important;
+    }
+  }
+}
+
+.talk_room{
+	background-color:rgb(113,147,193);
+	padding:1em;
+	overflow:auto;
+}
+
+/* 左のトークボックス */
+.talk_room .left-message p:before {
+	content: '';
+	position:absolute;
+	top:8px;
+	left:-20px;
+	border: 12px solid transparent;
+	border-right:12px solid white;
+}
+.talk_room .left-message p {
+	display:inline-block;
+	position:relative;
+	background-color:white;
+	border-radius:10px;
+	padding:10px;
+	margin:10 0 0 10px;
+}
+
+/* 右のトークボックス */
+.talk_room .right-message p:after {
+	content: '';
+	position:absolute;
+	top:8px;
+	right:-20px;
+	border: 12px solid transparent;
+	border-left:12px solid #85e249;
+}
+.talk_room .right-message p {
+	display:inline-block;
+	position:relative;
+	background-color:#85e249;
+	border-radius:10px;
+	padding:10px;
+	margin:10px 10px 0 0;
+}
+
+
+.btn-sticky {
+  display: inline-block;
+  padding: 0.1em 0.3em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 6px #ff7c5c;/*左線*/
+  color: #ff7c5c;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+}
+.btn-sticky:active {
+  box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+  transform: translateY(2px);
+}
+
+.slick-slide img {
+  height: 20vw; //ポイント1
+  max-height: 300px; //ポイント2
+  min-height: 200px; //ポイント2
+}
+
+.img{
+	border-radius: 50%;
+}
+.image_size{
+  width:  120px;
+  height: 120px;
+}
+
+$theme-colors: (
+  "primary": #996633,
+  "info": #40E0D0,
+  "danger": #ff4136
+);
+
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "slick-theme";
+@import "slick";
