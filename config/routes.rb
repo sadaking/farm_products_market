@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     passwords:     'producers/passwords',
     registrations: 'producers/registrations'
   }
+  resources :producers, only: [:show]
+  
   devise_for :users, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',
