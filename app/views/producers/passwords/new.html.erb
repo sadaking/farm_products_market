@@ -1,16 +1,20 @@
-<h2><%= t('.forgot_your_password') %></h2>
+<div class="mx-auto p-4 border border-primary rounded" style="border:solid 1px; max-width:700px;">
+  <h2><%= t('.forgot_your_password') %></h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: "form-control" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit t('.send_me_reset_password_instructions') %>
-  </div>
-<% end %>
+    <div class="actions mt-4">
+      <%= f.submit t('.send_me_reset_password_instructions') , class: "form-control btn btn-info"%>
+    </div>
+  <% end %>
+</div>
 
-<%= render "producers/shared/links" %>
+<div class="mt-4 mx-auto p-4 border border-primary rounded" style="border:solid 1px; max-width:700px;">
+  <%= render "producers/shared/links" %>
+</div>

@@ -6,4 +6,5 @@ class Producer < ApplicationRecord
 
   has_many :products
   has_many :rooms
+  has_one_attached :producer_avatar
 end
