@@ -26,9 +26,13 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :image %><br />
-    <%= form.file_field :image %>
+    <%= form.label :image%><br/>
+    <%= form.label :image, class: "btn btn-info" do %>
+      <i class="far fa-image"> メイン画像ファイルを選択</i>
+    <% end %>
+    <%= form.file_field :image, class: "image_form", style: "display: none;"%>
   </div>
+
 
   <div class="form-group">
     <%= form.label :content %><br />
@@ -55,7 +59,7 @@
     <br>
     <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
   </div>
-  <br>
+  
   <div class="actions mt-4">
     <%= form.submit name="sell"  , class: "form-control btn btn-info"%>
   </div>
