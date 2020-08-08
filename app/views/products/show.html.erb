@@ -40,12 +40,16 @@
     <% end %>
   </div>
   <br>
-  <div class="mx-auto p-4" style="max-width:700px;">
-    <p class="alert alert-warning rounded">コメント</p>
-    <div id="comments_area">
-      <%= render partial: 'comments/index', locals: { comments: @comments, product: @product } %>
+  <div class="card mx-auto border border-primary rounded" style="max-width:700px;">
+    <div class="card-body p-4">
+      <div class="text-center my-3">
+        <strong>コメント一覧</strong>
+      </div>
+      <div id="comments_area">
+        <%= render partial: 'comments/index', locals: { comments: @comments, product: @product } %>
+      </div>
+      <%= render partial: 'comments/form', locals: { comment: @comment, product: @product } , class: "text-info float-right"%>
+      <%= link_to '一覧画面に戻る', products_path , class: "text-info float-right"%>
     </div>
-    <%= render partial: 'comments/form', locals: { comment: @comment, product: @product } %>
-    <%= link_to '一覧画面に戻る', products_path %>
   </div>
 </div>
