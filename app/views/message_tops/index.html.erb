@@ -5,11 +5,13 @@
     <h4>生産者一覧</h4>
     <br>
     <% @producers.each do |producer| %>
-      <%= image_tag producer.producer_avatar.variant(combine_options:{gravity: :center,
-                                                          border:'2',
-                                                          resize:"160x160^",
-                                                          crop:"220x220+0+0"}).processed,
-                                                          class: "img border-primary image_size"%>
+      <% if producer.producer_avatar.attached? %>
+        <%= image_tag producer.producer_avatar.variant(combine_options:{gravity: :center,
+                                                            border:'2',
+                                                            resize:"160x160^",
+                                                            crop:"220x220+0+0"}).processed,
+                                                            class: "img border-primary image_size"%>
+      <% end %>
       <%= producer.producer_name %>さん
       <% if @producer_ids.include?(producer.id) %>
         <br>
@@ -25,11 +27,13 @@
     <h4>ユーザー一覧</h4>
     <br>
     <% @users.each do |user| %>
-      <%= image_tag user.avatar.variant(combine_options:{gravity: :center,
-                                                          border:'2',
-                                                          resize:"160x160^",
-                                                          crop:"220x220+0+0"}).processed,
-                                                          class: "img border-primary image_size"%>
+      <% if user.avatar.attached? %>
+        <%= image_tag user.avatar.variant(combine_options:{gravity: :center,
+                                                            border:'2',
+                                                            resize:"160x160^",
+                                                            crop:"220x220+0+0"}).processed,
+                                                            class: "img border-primary image_size"%>
+      <% end %>
       <%= user.name %>さん
       <% if @user_ids.include?(user.id) %>
       <br>
