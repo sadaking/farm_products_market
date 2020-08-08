@@ -1,17 +1,18 @@
 <br>
 <div class="mx-auto p-4 border border-primary rounded" style="border:solid 1px #343a40; max-width:700px;">
   <h2>生産者プロフィール画面</h2><br/>
-
-  <%= image_tag @producer.producer_avatar.variant(combine_options:{gravity: :center,
-                                                      border:'2',
-                                                      resize:"160x160^",
-                                                      crop:"220x220+0+0"}).processed,
-                                                      class: "img border-primary"%><br/>
+  <% if @producer.producer_avatar.attached? %>
+    <%= image_tag @producer.producer_avatar.variant(combine_options:{gravity: :center,
+                                                        border:'2',
+                                                        resize:"160x160^",
+                                                        crop:"220x220+0+0"}).processed,
+                                                        class: "img border-primary"%><br/>
+  <% end %>
   <br>
   <h5>生産者名</h5>
   <p class="form-control alert alert-warning rounded"><%= @producer.producer_name %></p>
   <h5>生産者メールアドレス</h5>
-  <p class="form-control alert alert-warning rounded"><%= @producer.email %></p><br/>
+  <p class="form-control alert alert-warning rounded"><%= @producer.email %></p><br/><br/>
 
   <%= link_to "編集", edit_producer_registration_path , class: "btn btn-info"%>
 </div>
