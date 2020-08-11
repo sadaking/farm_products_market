@@ -7,5 +7,13 @@ class Product < ApplicationRecord
   has_many :comments, dependent: :destroy
   belongs_to :producer
 
+  validates :title, presence: true ,length: { maximum: 25 }
+  validates :price, presence: true
+  validates :quantity, presence: true
+  validates :content, presence:true ,length: { maximum: 300 }
+  validates :farm_name, presence:true
+  validates :farm_street_address, presence:true
+
+
   scope :title_search, -> (title) {where("title LIKE ?", "%#{title}%")}
 end
