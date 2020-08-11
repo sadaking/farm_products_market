@@ -3,24 +3,26 @@
     <h2>商品詳細画面</h2>
     <p id="notice"><%= notice %></p>
     <div class="product-text rounded" style="ax-width:700px;">
-      <p>
-        <%= image_tag @product.image.variant(combine_options:{gravity: :center,border:'2', resize:"180x180^",crop:"220x220+0+0"}).processed ,class: "rounded"%>
-      </p>
+      <% if @product.image.attached? %>
+        <p>
+          <%= image_tag @product.image.variant(combine_options:{gravity: :center,border:'2', resize:"180x180^",crop:"220x220+0+0"}).processed ,class: "rounded"%>
+        </p>
+      <% end %>
       <p class="form-control border border-primary rounded"><%= @product.title %></p>
       <p>
         <% @product.labels.each do |label| %>
           <label class='btn-sticky'><%= label.name %></label>
         <% end %>
       </p>
-      <p class="alert alert-warning rounded">価格:<%= @product.price %></p>
-      <p class="alert alert-warning rounded">在庫数:<%= @product.quantity %></p>
-      <p class="alert alert-warning rounded">詳細:<%= @product.content %></p>
-      <p class="alert alert-warning rounded">収穫日<%= @product.harvest_date.strftime("%Y年%m月%d日")%></p>
-      <p class="alert alert-warning rounded">農園名<%= @product.farm_name %></p>
-      <p class="alert alert-warning rounded">運営者先住所<%= @product.farm_street_address %></p>
+      <p class="alert alert-warning rounded">価格: <%= @product.price %></p>
+      <p class="alert alert-warning rounded">在庫数: <%= @product.quantity %></p>
+      <p class="alert alert-warning rounded">詳細: <%= @product.content %></p>
+      <p class="alert alert-warning rounded">収穫日: <%= @product.harvest_date.strftime("%Y年%m月%d日")%></p>
+      <p class="alert alert-warning rounded">農園名: <%= @product.farm_name %></p>
+      <p class="alert alert-warning rounded">運営者先住所: <%= @product.farm_street_address %></p>
     </div>
     <br>
-    <% if user_signed_in? || producer_signed_in? %>
+    <% if user_signed_in? %>
       <% if @favorite.present? %>
         <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
       <% else %>
@@ -34,8 +36,12 @@
           data-key="<%= ENV["PAYJP_KEY"] %>">
         </script>
       <% end %>
+    <% elsif producer_signed_in?%>
+      <strong><お願い></strong>
+      <p>他出品者の商品ご購入を希望する場合は、<br>
+        お手数ですが生産者ではなく、ユーザー新規登録、ログインからご購入してください🙇‍♂️</p>
     <% else %>
-      <p>※商品ご購入を希望の場合は新規登録、ログインをしてください🙇‍♂️</p>
+      <p>※商品ご購入を希望の場合はユーザー新規登録、ログインをしてください🙇‍♂️</p>
       <%= link_to "ユーザー新規登録", new_user_registration_path, class: 'nav-link'%>
     <% end %>
   </div>
@@ -44,6 +50,7 @@
     <div class="card-body p-4">
       <div class="text-center my-3">
         <strong>コメント一覧</strong>
+        <p id="notice"><%= notice %></p>
       </div>
       <div id="comments_area">
         <%= render partial: 'comments/index', locals: { comments: @comments, product: @product } %>

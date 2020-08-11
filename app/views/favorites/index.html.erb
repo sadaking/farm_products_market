@@ -6,7 +6,9 @@
   <% @favorites.each  do |favorite| %>
     <tr>
       <div class="card ml-2 mb-2 mr-2 rounded" style="width: 14rem;">
-        <%= image_tag favorite.product.image.variant(combine_options:{gravity: :center,border:'2', resize:"180x180^",crop:"220x220+0+0"}).processed ,class: "rounded"%>
+        <% if favorite.product.image.attached? %>
+          <%= image_tag favorite.product.image.variant(combine_options:{gravity: :center,border:'2', resize:"180x180^",crop:"220x220+0+0"}).processed ,class: "rounded"%>
+        <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= favorite.product.title %></h5>
           <td>商品名：<%= favorite.product.title %></td><br/>

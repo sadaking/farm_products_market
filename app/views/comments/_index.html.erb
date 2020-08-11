@@ -7,8 +7,7 @@
         <hr>
         <%= link_to "コメント編集", edit_product_comment_path(product, comment), remote: true , class: "text-info float-right"%>
         <br>
-        <%= link_to "コメント削除", product_comment_path(comment.product_id, comment.id), method: :delete, remote: true,
-                                        data: { confirm: "本当に削除しますか?"} , class: "text-info float-right"%>
+        <%= link_to "コメント削除", product_comment_path(comment.product_id, comment.id), method: :delete, remote: true, class: "text-info float-right"%>
       </li>
     <% end %>
     <br>

@@ -29,17 +29,20 @@
     <% @products.each do |product|%>
       <tr>
         <div class="card ml-2 mb-2 mr-2 rounded border-primary" style="width: 14rem;">
-          <td><%= image_tag product.image.variant(combine_options:{gravity: :center,border:'2', resize:"180x180^",crop:"220x220+0+0"}).processed ,class: "rounded"%></td>
+          <% if product.image.attached? %>
+            <td><%= image_tag product.image.variant(combine_options:{gravity: :center,border:'2', resize:"180x180^",crop:"220x220+0+0"}).processed ,class: "rounded"%></td>
+          <% end %>
           <div class="card-body">
             <h6 class="card-title alert alert-primary"><%= product.title %></h6>
             <td>価格：<%= product.price %></td><br/>
             <td>在庫数：<%= product.quantity %></td><br/>
             <td><%= product.content %></td><br/>
             <td><%= link_to '詳細', product_path(product.id) , class: "btn btn-primary mb-1" %></td>
-            <% if current_producer.try(:admin?) || producer_signed_in? %>
-              <td><%= link_to "編集", edit_product_path(product.id) %></td>
-            <% elsif current_producer.try(:admin?) %>
-              <td><%= link_to '削除', product_path(product.id), method: :delete , data: { confirm: '本当に削除していいですか？' } %></td>
+            <% if current_user.try(:admin?) || producer_signed_in? %>
+              <td><%= link_to "編集", edit_product_path(product.id) , class: "btn btn-primary mb-1" %></td>
+            <% end %>
+            <% if current_user.try(:admin?) %>
+              <td><%= link_to '削除', product_path(product.id), method: :delete , data: { confirm: '本当に削除していいですか？' } , class: "btn btn-primary mb-1" %></td>
             <% end %>
             <br/>
             <td class="product_label">
