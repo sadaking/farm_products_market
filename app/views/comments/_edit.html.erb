@@ -10,10 +10,10 @@
     </div>
   <% end %>
   <div class="field">
-    <%= form.label :編集 %><br>
-    <%= form.text_area :content, id: "comment_content_#{product.id}" ,class: "form-control"%>
+    <%= form.label :content %><br/>
+    <%= form.text_area :content, id: "comment_content_#{product.id}" ,class: "form-control" ,placeholder: "ここに編集するコメントを入力します"%><br>
   </div>
-  <div class="actions mt-4">
-    <%= form.submit class: "form-control btn btn-info" %>
+  <div class="actions">
+    <%= form.submit class: "form-control btn btn-info" , id: "edit_comment"%>
   </div>
 <% end %>
