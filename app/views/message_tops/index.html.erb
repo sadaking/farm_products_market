@@ -19,7 +19,7 @@
       <% else %>
         <%= form_for Room.new do |f| %>
           <%= f.hidden_field :producer_id, :value => producer.id %>
-          <%= f.submit %>
+          <%= f.submit  class: "btn btn-primary", id: "createroom"%>
         <% end %>
       <% end %>
     <% end %>
@@ -41,7 +41,7 @@
       <% else %>
         <%= form_for Room.new do |f| %>
           <%= f.hidden_field :user_id, :value => user.id %>
-          <%= f.submit %>
+          <%= f.submit class: "btn btn-primary" ,id: "createroom"%>
         <% end %>
       <% end %>
     <% end %>
