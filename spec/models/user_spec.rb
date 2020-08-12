@@ -90,7 +90,7 @@ RSpec.describe '出品製品の管理機能', type: :model do
     expect(user).not_to be_valid
   end
 
-  it 'address_buildingが空ならバリデーションが通らない' do
+  it 'address_buildingが空でもバリデーションが通る' do
     user = User.new(
       id: 100,
       name: 'sample',
@@ -102,10 +102,10 @@ RSpec.describe '出品製品の管理機能', type: :model do
       address_building:'',
       password: 'usertest',
     )
-    expect(user).not_to be_valid
+    expect(user).to be_valid
   end
 
-  it 'address_buildingが空ならバリデーションが通らない' do
+  it 'passwordが空ならバリデーションが通らない' do
     user = User.new(
       id: 100,
       name: 'sample',

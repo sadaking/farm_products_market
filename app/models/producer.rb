@@ -10,7 +10,6 @@ class Producer < ApplicationRecord
   validates :producer_prefecture_code, presence: true
   validates :producer_address_city, presence: true
   validates :producer_address_street, presence: true
-  validates :producer_address_building, presence: true
 
   has_many :products
   has_many :rooms
