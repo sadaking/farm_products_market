@@ -1,8 +1,9 @@
 <div class="slider">
-    <div class="item"><img class="c border border-primary rounded" src="assets/nouka5.jpeg"></div>
-    <div class="item"><img class="c border border-primary rounded" src="assets/nouka6.jpeg"></div>
-    <div class="item"><img class="c border border-primary rounded" src="assets/nouka7.jpeg"></div>
-    <div class="item"><img class="c border border-primary rounded" src="assets/nouka8.jpeg"></div>
+  <% @products.each do |product|%>
+    <% if product.image.attached? %>
+      <div class="item"><%= image_tag product.image.variant(combine_options:{gravity: :center,border:'2', resize:"180x180^",crop:"220x220+0+0"}).processed ,class: "rounded"%></div>
+    <% end %>
+  <% end %>
 </div>
 
 <div class="container">
@@ -34,6 +35,7 @@
           <% end %>
           <div class="card-body">
             <h6 class="card-title alert alert-primary"><%= product.title %></h6>
+            <td><%= product.producer.producer_name%></td><br/>
             <td>価格：<%= product.price %></td><br/>
             <td>在庫数：<%= product.quantity %></td><br/>
             <td><%= product.content %></td><br/>
