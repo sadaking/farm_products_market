@@ -90,7 +90,7 @@ RSpec.describe '出品製品の管理機能', type: :model do
     expect(producer).not_to be_valid
   end
 
-  it 'producer_address_buildingが空ならバリデーションが通らない' do
+  it 'producer_address_buildingが空でもバリデーションが通る' do
     producer = Producer.new(
       id: 50,
       producer_name: 'NoukaTaro',
@@ -102,7 +102,7 @@ RSpec.describe '出品製品の管理機能', type: :model do
       producer_address_building:'',
       password: 'producertest',
     )
-    expect(producer).not_to be_valid
+    expect(producer).to be_valid
   end
 
   it 'passwordが空ならバリデーションが通らない' do

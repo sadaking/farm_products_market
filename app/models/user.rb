@@ -22,7 +22,6 @@ class User < ApplicationRecord
    validates :prefecture_code, presence: true
    validates :address_city, presence: true
    validates :address_street, presence: true
-   validates :address_building, presence: true
 
    has_many :rooms
    has_many :favorites, dependent: :destroy
