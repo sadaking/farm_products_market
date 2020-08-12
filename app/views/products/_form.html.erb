@@ -11,22 +11,22 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :title %><br />
+    <%= form.label :商品タイトル %><br />
     <%= form.text_field :title, autoformocus: true , class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :price %><br />
+    <%= form.label :価格 %><br />
     <%= form.text_field :price, autoformocus: true , class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :quantity %><br />
+    <%= form.label :在庫数 %><br />
     <%= form.text_field :quantity, autoformocus: true , class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :image%><br/>
+    <%= form.label :商品イメージ写真%><br/>
     <%= form.label :image, class: "btn btn-info" do %>
       <i class="far fa-image"> メイン画像ファイルを選択</i>
     <% end %>
@@ -35,22 +35,22 @@
 
 
   <div class="form-group">
-    <%= form.label :content %><br />
+    <%= form.label :紹介アピール %><br />
     <%= form.text_field :content, autoformocus: true ,class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :harvest_date %><br />
+    <%= form.label :収穫日 %><br />
     <%= form.date_field :harvest_date %>
   </div>
 
   <div class="form-group">
-    <%= form.label :farm_name %><br />
+    <%= form.label :農場名 %><br />
     <%= form.text_field :farm_name, autoformocus: true , class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :farm_street_address %><br />
+    <%= form.label :住所 %><br />
     <%= form.text_field :farm_street_address, autoformocus: true , class: "form-control" %>
   </div>
 
@@ -59,8 +59,8 @@
     <br>
     <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
   </div>
-  
+
   <div class="actions mt-4">
-    <%= form.submit name="sell"  , class: "form-control btn btn-info"%>
+    <%= form.submit name="出品する"  , class: "form-control btn btn-info"%>
   </div>
 <% end %>

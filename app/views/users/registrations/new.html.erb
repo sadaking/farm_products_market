@@ -25,7 +25,7 @@
     <div class="form-row">
       <div class="form-group">
         <%= f.label :postal_code %><br />
-        <%= f.text_field :postal_code, autofocus: true, placeholder: 'postal_code', class: "postal_code form-control", id: "address_zipcode" %>
+        <%= f.text_field :postal_code, autofocus: true, placeholder: '例)1000014', class: "postal_code form-control", id: "address_zipcode" %>
       </div>
 
       <div class="form-group col">
@@ -36,17 +36,17 @@
 
     <div class="form-group">
       <%= f.label :address_city %><br />
-      <%= f.text_field :address_city, autofocus: true, autocomplete: "address_city", id: "address_city" , class: "form-control" %>
+      <%= f.text_field :address_city, autofocus: true, autocomplete: "address_city", placeholder: '例)千代田区千代田町', id: "address_city" , class: "form-control" %>
     </div>
 
     <div class="form-group">
       <%= f.label :address_street %><br />
-      <%= f.text_field :address_street, autofocus: true, autocomplete: "address_street", placeholder: 'address_street', id: "address_street" , class: "form-control" %>
+      <%= f.text_field :address_street, autofocus: true, autocomplete: "address_street", placeholder: '例)1-2-3', id: "address_street" , class: "form-control" %>
     </div>
 
     <div class="form-group">
       <%= f.label :address_building %><br />
-      <%= f.text_field :address_building, autofocus: true, autocomplete: "address_building", placeholder: 'address_building', id: "address_building" , class: "form-control" %>
+      <%= f.text_field :address_building, autofocus: true, autocomplete: "address_building", placeholder: '例)千代田ビル101号', id: "address_building" , class: "form-control" %>
     </div>
 
     <div class="form-group">
