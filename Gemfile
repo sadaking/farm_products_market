@@ -43,6 +43,7 @@ gem 'jquery-rails'
 gem 'font-awesome-sass'
 gem 'payjp'
 gem 'dotenv-rails'
+gem "aws-sdk-s3", require: false
 
 
 # Reduces boot times through caching; required in config/boot.rb
