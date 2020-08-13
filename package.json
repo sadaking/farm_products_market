@@ -2,6 +2,7 @@
   "name": "farm_products_market",
   "private": true,
   "dependencies": {
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "slick-carousel": "^1.8.1"
   }
 }
