@@ -52,15 +52,6 @@ class ProductsController < ApplicationController
     redirect_to products_path, notice:"商品を削除しました！"
   end
 
-  def pay
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    charge = Payjp::Charge.create(
-      :amount => @product.price,
-      :card => params['payjp-token'],
-      :currency => 'jpy',
-    )
-  end
-
   private
 
   def product_params

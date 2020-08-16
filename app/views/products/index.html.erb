@@ -1,3 +1,6 @@
+<div style="height:40px;">
+  <%= render "layouts/flash" %>
+</div>
 <div class="slider">
   <% @products.shuffle.first(6).each do |product|%>
     <% if product.image.attached? %>
@@ -13,7 +16,6 @@
   <% else %>
     <h2>商品一覧</h2>
   <% end %>
-  <p><%= notice %></p>
 
   <div class="form-group">
     <%= form_with(url:products_path, local: true, method: :get) do |form| %>
