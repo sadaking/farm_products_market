@@ -10,13 +10,14 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://js.pay.jp/" type="text/javascript"></script>
   </head>
 
   <body>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <div style="margin-bottom:100px;">
       <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <nav class="navbar navbar-expand-sm  navbar-light bg-light">
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <%= link_to  products_path, method: :get do %>
@@ -27,13 +28,14 @@
                     <%= current_user.name %>さん
                   </li>
                   <li class="nav-item active">
-                    <%= link_to "生産者とのメッセージ", message_tops_path, class: 'nav-link'%>
+                    <%= link_to "カード登録or情報", new_card_path, class: 'nav-link'%>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Menu
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <div class="dropdown-item"><%= link_to "生産者とのメッセージ", message_tops_path%></div>
                       <div class="dropdown-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete%></div>
                       <div class="dropdown-item"><%= link_to "プロフィール", user_path(current_user.id)%></div>
                     </div>
@@ -73,11 +75,13 @@
         </nav>
       </header>
       <%= yield %>
-      <footer class="fixed-bottom">
-        <div class="navbar navbar-expand-lg navbar-light bg-light ">
-          <%= link_to  products_path, method: :get do %>
-            <i class="fas fa-seedling fa-3x"></i>
-          <% end %>
+      <footer class="fixed-bottom bg-light d-block">
+        <div class="container my-3">
+          <div class="row">
+            <%= link_to  products_path,  method: :get do %>
+              <i class="fas fa-seedling fa-3x"></i>
+            <% end %>
+          </div>
         </div>
       </footer>
     </div>

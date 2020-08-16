@@ -1,7 +1,9 @@
 <div class="container">
   <div class="mx-auto p-4  border border-primary rounded" style="border:solid 1px; max-width:700px;">
     <h2>商品詳細画面</h2>
-    <p id="notice"><%= notice %></p>
+    <div class="alert alert-light" role="alert">
+      <p id="notice"><%= notice %></p>
+    </div>
     <div class="product-text rounded" style="ax-width:700px;">
       <% if @product.image.attached? %>
         <p>
@@ -29,13 +31,7 @@
         <%= link_to 'お気に入りリストへ', favorites_path(product_id: @product.id), method: :post, class: 'btn btn-primary' %>
       <% end %><br/>
     <br>
-      <%= form_with local: true, url: pay_product_path do |form| %>
-        <script type="text/javascript"
-          src="https://checkout.pay.jp"
-          class="payjp-button"
-          data-key="<%= ENV["PAYJP_KEY"] %>">
-        </script>
-      <% end %>
+    <%= link_to '購入する', product_purchases_path(product_id: @product.id), class: "btn btn-info mb-1" %>
     <% elsif producer_signed_in?%>
       <strong><お願い></strong>
       <p>他出品者の商品ご購入を希望する場合は、<br>

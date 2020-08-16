@@ -23,6 +23,7 @@ class User < ApplicationRecord
    validates :address_city, presence: true
    validates :address_street, presence: true
 
+   has_one :credit_card, dependent: :destroy
    has_many :rooms
    has_many :favorites, dependent: :destroy
    has_one_attached :avatar
