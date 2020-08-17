@@ -1,15 +1,26 @@
 <div class="container">
-  <div class="mx-auto p-4  border border-primary rounded" style="border:solid 1px; max-width:700px;">
+  <div class="mx-auto p-4 my-4 border border-primary rounded" style="border:solid 1px; max-width:1000px;">
     <h2>商品詳細画面</h2>
     <div class="alert alert-light" role="alert">
       <p id="notice"><%= notice %></p>
     </div>
-    <div class="product-text rounded" style="ax-width:700px;">
-      <% if @product.image.attached? %>
-        <p>
-          <%= image_tag @product.image.variant(combine_options:{gravity: :center,border:'2', resize:"180x180^",crop:"220x220+0+0"}).processed ,class: "rounded"%>
-        </p>
-      <% end %>
+    <div class="product-text rounded" style="ax-width:1000px;">
+      <div class="row ml-2 mb-2 mr-2">
+        <div class="row mr-2">
+        <% if @product.image.attached? %>
+          <p>
+            <%= image_tag @product.image.variant(combine_options:{gravity: :center,border:'2', resize:"180x180^",crop:"220x220+0+0"}).processed ,class: "rounded"%>
+          </p>
+        <% end %>
+        </div>
+        <% if @product.sub_images.attached? %>
+          <p>
+            <% @product.sub_images.first(3).each do |sub_image| %>
+              <%= image_tag sub_image.variant(combine_options:{gravity: :center,border:'2', resize:"180x180^",crop:"220x220+0+0"}).processed ,class: "rounded"%>
+            <% end %>
+          </p>
+        <% end %>
+      </div>
       <p class="form-control border border-primary rounded"><%= @product.title %></p>
       <p>
         <% @product.labels.each do |label| %>
@@ -42,7 +53,7 @@
     <% end %>
   </div>
   <br>
-  <div class="card mx-auto border border-primary rounded" style="max-width:700px;">
+  <div class="card mx-auto border border-primary rounded" style="max-width:1000px;">
     <div class="card-body p-4">
       <div class="text-center my-3">
         <strong>コメント一覧</strong>
