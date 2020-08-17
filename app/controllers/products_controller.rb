@@ -3,10 +3,10 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: %i[pay]
 
   def index
-    @products = Product.all
+    @products = Product.all.page(params[:page]).per(16)
 
     if params[:search].present?
-      @products = Product.title_search(params[:title])
+      @products = Product.title_search(params[:title]).page(params[:page]).per(16)
     end
 
     if params[:label_id].present?
