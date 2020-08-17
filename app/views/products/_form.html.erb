@@ -31,6 +31,10 @@
       <i class="far fa-image"> メイン画像ファイルを選択</i>
     <% end %>
     <%= form.file_field :image, class: "image_form", style: "display: none;"%>
+    <%= form.label :sub_images, class: "btn btn-warning" do %>
+      <i class="far fa-image"> サブ画像ファイルを選択(3枚まで)</i>
+    <% end %>
+    <%= form.file_field :sub_images, class: "image_form", multiple: true, style: "display: none;"%>
   </div>
 
 

@@ -65,6 +65,7 @@ class ProductsController < ApplicationController
       :harvest_date,
       :farm_name,
       :farm_street_address,
+      sub_images: [],
       label_ids: [])
   end
 
