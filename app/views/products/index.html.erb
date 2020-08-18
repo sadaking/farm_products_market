@@ -36,19 +36,33 @@
             <td><%= image_tag product.image.variant(combine_options:{gravity: :center,border:'2', resize:"180x180^",crop:"220x220+0+0"}).processed ,class: "rounded"%></td>
           <% end %>
           <div class="card-body">
-            <h6 class="card-title alert alert-primary"><%= product.title.truncate(25) %></h6>
-            <td><%= product.producer.producer_name%></td><br/>
-            <td>価格：<%= product.price %></td><br/>
-            <td>在庫数：<%= product.quantity %></td><br/>
-            <td><%= product.content.truncate(25) %></td><br/>
-            <td><%= link_to '詳細', product_path(product.id) , class: "btn btn-primary mb-1" %></td>
+            <div class="example">
+              <div class="box">
+                <%= link_to producer_path(product.producer.id) do%>
+                  <%= product.producer.producer_name%>
+                <% end %>
+              </div>
+              <% if product.producer.producer_avatar.attached? %>
+                <%= image_tag product.producer.producer_avatar.variant(combine_options:{gravity: :center,
+                                                                    border:'2',
+                                                                    resize:"50x95^",
+                                                                    crop:"100x100+0+0"}).processed,
+                                                                    class: "img border-primary"%>
+              <% end %>
+            </div>
+            <td>
+              <%= link_to product_path(product.id) do%>
+                <%= product.title.truncate(20) %>
+              <% end %>
+            </td><br/>
+            <td><h5 class="text-primary">¥ <%= product.price %></h5></td>
+            <td><%= product.content.truncate(23) %></td><br/>
             <% if current_user.try(:admin?) || producer_signed_in? %>
               <td><%= link_to "編集", edit_product_path(product.id) , class: "btn btn-primary mb-1" %></td>
             <% end %>
             <% if current_user.try(:admin?) %>
               <td><%= link_to '削除', product_path(product.id), method: :delete , data: { confirm: '本当に削除していいですか？' } , class: "btn btn-primary mb-1" %></td>
             <% end %>
-            <br/>
             <td class="product_label">
               <% product.labels.each do |label| %>
                 <label class='btn-sticky'><%= label.name %></label>
