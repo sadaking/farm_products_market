@@ -14,5 +14,7 @@
   <h5>生産者メールアドレス</h5>
   <p class="form-control alert alert-warning rounded"><%= @producer.email %></p><br/><br/>
 
-  <%= link_to "編集", edit_producer_registration_path , class: "btn btn-info"%>
+  <% if current_producer.id == @producer.id %>
+    <%= link_to "編集", edit_producer_registration_path , class: "btn btn-info"%>
+  <% end %>
 </div>
