@@ -42,7 +42,11 @@
         <%= link_to 'お気に入りリストへ', favorites_path(product_id: @product.id), method: :post, class: 'btn btn-primary' %>
       <% end %><br/>
     <br>
-    <%= link_to '購入する', product_purchases_path(product_id: @product.id), class: "btn btn-info mb-1" %>
+      <% if @product.quantity > 0 %>
+        <%= link_to '購入する', product_purchases_path(product_id: @product.id), class: "btn btn-info mb-1" %>
+      <% elsif @product.quantity == 0 %>
+        <strong>申し訳ございません。当商品は売り切れです🙇‍♂️</strong>
+      <% end %>
     <% elsif producer_signed_in?%>
       <strong><お願い></strong>
       <p>他出品者の商品ご購入を希望する場合は、<br>
