@@ -10,6 +10,29 @@
   }
 }
 
+.box{
+    padding: 0.5em 1em;
+    margin: 0.5em 0;
+    background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+    background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+}
+.box p {
+    margin: 0;
+    padding: 0;
+}
+
+.example{
+    position: relative;
+}
+.example img{
+  position: absolute;
+    top: 5%;
+    left: 85%;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+
 .talk_room{
 	background-color:rgb(113,147,193);
 	padding:1em;
@@ -82,27 +105,6 @@
   height: 120px;
 }
 
-.box{
-    padding: 0.5em 1em;
-    margin: 0.5em 0;
-    background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
-    background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
-}
-.box p {
-    margin: 0;
-    padding: 0;
-}
-
-.example{
-    position: relative;
-}
-.example img{
-  position: absolute;
-    top: 5%;
-    left: 85%;
-    transform: translateY(-50%) translateX(-50%);
-    -webkit-transform: translateY(-50%) translateX(-50%);
-}
 
 $theme-colors: (
   "primary": #996633,
