@@ -35,11 +35,11 @@ RSpec.describe '生産者出品機能と商品検索と詳細機能とコメン�
         fill_in 'product[price]', with: '2000'
         fill_in 'product[quantity]', with: '3'
         fill_in 'product[content]', with: '美味しいよ！！'
-        fill_in 'product[harvest_date]', with: '2020/07/31'
+        fill_in 'product[harvest_date]', with: '2020-08-10　00:00:00'
         fill_in 'product[farm_name]', with: 'TS農園'
         fill_in 'product[farm_street_address]', with: '長野県松本市'
         check "新鮮"
-        click_on 'sell'
+        click_on '出品する'
         expect(page).to have_content '商品一覧'
       end
     end
@@ -156,7 +156,7 @@ RSpec.describe '生産者出品機能と商品検索と詳細機能とコメン�
         it 'ユーザーが生産者にメッセージを送るためにメッセージルームを作る' do
           user_login
           click_on '生産者とのメッセージ'
-          click_on 'Create Room', match: :first
+          click_on '登録する', match: :first
           fill_in 'message[content]', with: '初めまして！！'
           click_on 'メッセージを送る'
           expect(page).to have_content '初めまして！！'
@@ -165,7 +165,7 @@ RSpec.describe '生産者出品機能と商品検索と詳細機能とコメン�
         it '生産者がユーザーにメッセージを送るためにメッセージルームを作る' do
           producer_login
           click_on 'ユーザーとのメッセージ'
-          click_on 'Create Room', match: :first
+          click_on '登録する', match: :first
           fill_in 'message[content]', with: '初めまして！！'
           click_on 'メッセージを送る'
           expect(page).to have_content '初めまして！！'
