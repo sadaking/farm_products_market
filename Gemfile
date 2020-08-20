@@ -45,6 +45,8 @@ gem 'payjp'
 gem 'dotenv-rails'
 gem "aws-sdk-s3", require: false
 gem 'kaminari'
+gem 'seed-fu'
+gem 'faker'
 
 
 # Reduces boot times through caching; required in config/boot.rb
