@@ -48,41 +48,41 @@ product.image.attach(io: File.open('./db/fixtures/image/fruits.jpeg'), filename:
 product = Product.find(14)
 product.image.attach(io: File.open('./db/fixtures/image/grape.jpeg'), filename: './db/fixtures/image/grape.jpeg')
 
-product = Product.find(15)
-product.image.attach(io: File.open('./db/fixtures/image/cherry.jpeg'), filename: './db/fixtures/image/cherry.jpeg')
-
-product = Product.find(16)
-product.image.attach(io: File.open('./db/fixtures/image/vegetables.jpeg'), filename: './db/fixtures/image/vegetables.jpeg')
-
-product = Product.find(17)
-product.image.attach(io: File.open('./db/fixtures/image/mango.jpeg'), filename: './db/fixtures/image/mango.jpeg')
-
-product = Product.find(18)
-product.image.attach(io: File.open('./db/fixtures/image/fruits.jpeg'), filename: './db/fixtures/image/fruits.jpeg')
-
-product = Product.find(19)
-product.image.attach(io: File.open('./db/fixtures/image/fruits.jpeg'), filename: './db/fixtures/image/fruits.jpeg')
-
-product = Product.find(20)
-product.image.attach(io: File.open('./db/fixtures/image/grape.jpeg'), filename: './db/fixtures/image/grape.jpeg')
-
-product = Product.find(21)
-product.image.attach(io: File.open('./db/fixtures/image/cherry.jpeg'), filename: './db/fixtures/image/cherry.jpeg')
-
-product = Product.find(22)
-product.image.attach(io: File.open('./db/fixtures/image/vegetables.jpeg'), filename: './db/fixtures/image/vegetables.jpeg')
-
-product = Product.find(23)
-product.image.attach(io: File.open('./db/fixtures/image/mango.jpeg'), filename: './db/fixtures/image/mango.jpeg')
-
-product = Product.find(24)
-product.image.attach(io: File.open('./db/fixtures/image/fruits.jpeg'), filename: './db/fixtures/image/fruits.jpeg')
-
-product = Product.find(25)
-product.image.attach(io: File.open('./db/fixtures/image/fruits.jpeg'), filename: './db/fixtures/image/fruits.jpeg')
-
-product = Product.find(26)
-product.image.attach(io: File.open('./db/fixtures/image/grape.jpeg'), filename: './db/fixtures/image/grape.jpeg')
-
-product = Product.find(27)
-product.image.attach(io: File.open('./db/fixtures/image/cherry.jpeg'), filename: './db/fixtures/image/cherry.jpeg')
+# product = Product.find(15)
+# product.image.attach(io: File.open('./db/fixtures/image/cherry.jpeg'), filename: './db/fixtures/image/cherry.jpeg')
+#
+# product = Product.find(16)
+# product.image.attach(io: File.open('./db/fixtures/image/vegetables.jpeg'), filename: './db/fixtures/image/vegetables.jpeg')
+#
+# product = Product.find(17)
+# product.image.attach(io: File.open('./db/fixtures/image/mango.jpeg'), filename: './db/fixtures/image/mango.jpeg')
+#
+# product = Product.find(18)
+# product.image.attach(io: File.open('./db/fixtures/image/fruits.jpeg'), filename: './db/fixtures/image/fruits.jpeg')
+#
+# product = Product.find(19)
+# product.image.attach(io: File.open('./db/fixtures/image/fruits.jpeg'), filename: './db/fixtures/image/fruits.jpeg')
+#
+# product = Product.find(20)
+# product.image.attach(io: File.open('./db/fixtures/image/grape.jpeg'), filename: './db/fixtures/image/grape.jpeg')
+#
+# product = Product.find(21)
+# product.image.attach(io: File.open('./db/fixtures/image/cherry.jpeg'), filename: './db/fixtures/image/cherry.jpeg')
+#
+# product = Product.find(22)
+# product.image.attach(io: File.open('./db/fixtures/image/vegetables.jpeg'), filename: './db/fixtures/image/vegetables.jpeg')
+#
+# product = Product.find(23)
+# product.image.attach(io: File.open('./db/fixtures/image/mango.jpeg'), filename: './db/fixtures/image/mango.jpeg')
+#
+# product = Product.find(24)
+# product.image.attach(io: File.open('./db/fixtures/image/fruits.jpeg'), filename: './db/fixtures/image/fruits.jpeg')
+#
+# product = Product.find(25)
+# product.image.attach(io: File.open('./db/fixtures/image/fruits.jpeg'), filename: './db/fixtures/image/fruits.jpeg')
+#
+# product = Product.find(26)
+# product.image.attach(io: File.open('./db/fixtures/image/grape.jpeg'), filename: './db/fixtures/image/grape.jpeg')
+#
+# product = Product.find(27)
+# product.image.attach(io: File.open('./db/fixtures/image/cherry.jpeg'), filename: './db/fixtures/image/cherry.jpeg')
