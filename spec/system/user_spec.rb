@@ -9,7 +9,7 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
         fill_in 'user[postal_code]', with: '1000014'
         select '東京都', from: "user_prefecture_code"
         fill_in 'user[address_city]', with: '千代田区永田町'
-        fill_in 'user[address_street]', with: '1-7-1'
+        fill_in 'user[address_street]', with: '1234'
         fill_in 'user[address_building]', with: '国会議事堂'
         fill_in 'user[password]', with: 'usertest'
         fill_in 'user[password_confirmation]', with: 'usertest'
@@ -55,7 +55,7 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
       it "ログアウトができること" do
        visit products_path
        find('#navbarDropdown').click
-       click_on "ログアウト"
+       click_on "ログアウト", match: :first
        expect(page).to have_content "ログアウトしました。"
      end
     end
@@ -73,17 +73,5 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
         expect(page).to have_content "サイト管理"
       end
     end
-
-    # context "一般ユーザーでログインをしている場合" do
-    #   it "一般ユーザは管理画面にアクセスできないこと" do
-    #     FactoryBot.create(:user)
-    #     visit new_user_session_path
-    #     fill_in "user[email]", with: "sample@example.com"
-    #     fill_in "user[password]", with: "usertest"
-    #     find('#login').click
-    #     visit rails_admin_path
-    #     expect(page).to have_content "あなたは管理者ではありません"
-    #   end
-    # end
   end
 end

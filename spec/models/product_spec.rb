@@ -72,6 +72,20 @@ RSpec.describe '出品製品の管理機能', type: :model do
       price:'2000',
       quantity:'3',
       content:'めっちゃ美味しい！！',
+      harvest_date:'',
+      farm_name:'TS農園',
+      farm_street_address:'長野県松本市松本',
+      producer_id: 50
+    )
+    expect(product).not_to be_valid
+  end
+
+  it 'farm_nameが空ならバリデーションが通らない' do
+    product = Product.new(
+      title: '野菜詰め合わせ',
+      price:'2000',
+      quantity:'3',
+      content:'めっちゃ美味しい！！',
       harvest_date:'2020-08-10　00:00:00',
       farm_name:'',
       farm_street_address:'長野県松本市松本',

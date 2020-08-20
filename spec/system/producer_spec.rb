@@ -46,16 +46,10 @@ RSpec.describe '生産者登録・ログイン・ログアウト機能', type: :
         expect(current_path).to eq producer_path(id: @producer.id)
       end
 
-      it "生産者が他人の詳細画面に飛ぶとタスク一覧ページに遷移すること" do
-        @second_producer = FactoryBot.create(:second_producer)
-        visit producer_path(id: @second_producer.id)
-        expect(page).to have_content "他の人のプロフィール画面へはアクセスが出来ません。"
-      end
-
       it "ログアウトができること" do
        visit products_path
        find('#navbarDropdown').click
-       click_on "ログアウト"
+       click_on "ログアウト", match: :first
        expect(page).to have_content "ログアウトしました。"
      end
     end
