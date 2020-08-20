@@ -64,8 +64,10 @@
             </td><br/>
             <td><h5 class="text-primary">¥ <%= product.price %></h5></td>
             <td><%= product.content.truncate(23) %></td><br/>
-            <% if current_user.try(:admin?) || current_producer.id == product.producer.id %>
-              <td><%= link_to "編集", edit_product_path(product.id) , class: "btn btn-primary mb-1" %></td>
+            <% if current_user.try(:admin?) || producer_signed_in? %>
+              <% if current_user.try(:admin?) || current_producer.id == product.producer.id%>
+                <td><%= link_to "編集", edit_product_path(product.id) , class: "btn btn-primary mb-1" %></td>
+              <% end %>
             <% end %>
             <% if current_user.try(:admin?) %>
               <td><%= link_to '削除', product_path(product.id), method: :delete , data: { confirm: '本当に削除していいですか？' } , class: "btn btn-primary mb-1" %></td><br/>
