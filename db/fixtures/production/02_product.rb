@@ -1,6 +1,6 @@
 Product.seed(
   :id,
-  { id: 7, title: 'フルーツ詰め合わせ', price: 2000, quantity: 2, image:, content: '無農薬で育てているため、甘さが際立っています！', harvest_date: '2020-08-15', farm_name: '江田島農場', farm_street_address: '広島県江田島市大柿町大原505', producer_id: 4, producer_id: 4 },
+  { id: 7, title: 'フルーツ詰め合わせ', price: 2000, quantity: 2, content: '無農薬で育てているため、甘さが際立っています！', harvest_date: '2020-08-15', farm_name: '江田島農場', farm_street_address: '広島県江田島市大柿町大原505', producer_id: 4, producer_id: 4 },
   { id: 8, title: '甲州ぶどうの詰め合わせ', price: 1800, quantity: 4, content: '産地、勝沼で育った甘い甘い葡萄をご賞味ください！！', harvest_date: '2020-08-11', farm_name: '勝沼フルーツ園', farm_street_address: '山梨県甲州市塩山上於曽1085-1', producer_id: 5 },
   { id: 9, title: 'さくらんぼの詰め合わせ', price: 2100, quantity: 2, content: '山形といえばさくらんぼ！徹底した管理のもとで育ったうちの商品は何処にも負けません。', harvest_date: '2020-08-15', farm_name: '米沢農場', farm_street_address: '山形県米沢市金池5-2-25', producer_id: 6 },
   { id: 10, title: '野菜詰め合わせ', price: 2200, quantity: 1, content: '北の大地で育った野菜はとても水々しいです！！', harvest_date: '2020-08-10', farm_name: '旭川農園', farm_street_address: '北海道旭川市6条通り6-9', producer_id: 7 },
