@@ -13,17 +13,6 @@
   margin: 2em 0 0.5em;
 }
 
-// .slick-dots {
-//   li {
-//     font-size: 20px !important;
-//     button:before {
-//       content: "🍅" !important;
-//       font-size: 18px !important;
-//       color: rgb(60, 60, 60) !important;
-//     }
-//   }
-// }
-
 .box{
     padding: 0.5em 0.2em;
     margin: 0.5em 0;
@@ -142,5 +131,3 @@ $theme-colors: (
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "slick-theme";
-@import "slick";
