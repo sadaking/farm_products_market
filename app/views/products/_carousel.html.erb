@@ -11,11 +11,13 @@
               <%= product.producer.producer_name%>
             <% end %>
           </div>
-          <%= image_tag product.producer.producer_avatar.variant(combine_options:{gravity: :center,
-                                                          border:'2',
-                                                          resize:"50x95^",
-                                                          crop:"100x100+0+0"}).processed,
-                                                          class: "img border-primary"%>
+          <% if product.producer.producer_avatar.attached? %>
+            <%= image_tag product.producer.producer_avatar.variant(combine_options:{gravity: :center,
+                                                            border:'2',
+                                                            resize:"50x95^",
+                                                            crop:"100x100+0+0"}).processed,
+                                                            class: "img border-primary"%>
+          <% end %>
         </div>
         <td>
           <%= link_to product_path(product.id) do%>
