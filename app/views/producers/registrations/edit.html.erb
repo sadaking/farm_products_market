@@ -61,7 +61,8 @@
     <hr style="margin-top:50px;">
 
     <div class="form-group" style="margin-top:50px;">
-      <%= f.label :password_change %><br/> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i>
+      <%= f.label :password_change %><br/>
+      <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i>
       <%= f.password_field :password, autocomplete: "new-password" , class: "form-control" ,placeholder: "6字以上"%>
     </div>
 
@@ -70,6 +71,11 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password" , class: "form-control", placeholder: "※変更希望のパスワードをもう一度入力してください" %>
     </div>
 
+    <i><%= t('.we_need_to_write_current_password_last') %></i>
+
+    <div class="form-group">
+      <%= f.password_field :current_password, autocomplete: "current-password" , class: "form-control" %>
+    </div>
 
     <div class="form-group">
       <%= f.submit t('.update') , class: "form-control btn btn-info"%>
