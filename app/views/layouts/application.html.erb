@@ -7,14 +7,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://js.pay.jp/" type="text/javascript"></script>
   </head>
 
   <body>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <div style="margin-bottom:100px;">
       <header>
         <nav class="navbar navbar-expand-sm  navbar-primary bg-success">
@@ -105,7 +102,7 @@
                 <% end %>
               </div>
               <div class="col">
-                <%= link_to destroy_user_session_path, class: "text-center d-block py-2 w-100", title: "ログアウト" do %>
+                <%= link_to destroy_producer_session_path, method: :delete, class: "text-center d-block py-2 w-100", title: "ログアウト" do %>
                   <i class="fas fa-sign-out-alt fa-2x"></i>
                 <% end %>
               </div>
@@ -121,7 +118,7 @@
                 <% end %>
               </div>
               <div class="col">
-                <%= link_to destroy_producer_session_path, class: "text-center d-block py-2 w-100", title: "ログアウト" do %>
+                <%= link_to destroy_producer_session_path, method: :delete, class: "text-center d-block py-2 w-100", title: "ログアウト" do %>
                   <i class="fas fa-sign-out-alt fa-2x"></i>
                 <% end %>
               </div>

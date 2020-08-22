@@ -1,0 +1,32 @@
+<div class="col-3">
+  <div class="card rounded border-primary" style="width: 17rem;">
+    <% @products.shuffle.first(1).each do |product|%>
+      <% if product.image.attached? %>
+        <td><%= image_tag product.image.variant(combine_options:{gravity: :center,border:'2', resize:"180x180^",crop:"220x220+0+0"}).processed ,class: "rounded"%></td>
+      <% end %>
+      <div class="card-body">
+        <div class="example">
+          <div class="box">
+            <%= link_to producer_path(product.producer.id) do%>
+              <%= product.producer.producer_name%>
+            <% end %>
+          </div>
+          <% if product.producer.producer_avatar.attached? %>
+            <%= image_tag product.producer.producer_avatar.variant(combine_options:{gravity: :center,
+                                                            border:'2',
+                                                            resize:"50x95^",
+                                                            crop:"100x100+0+0"}).processed,
+                                                            class: "img border-primary"%>
+          <% end %>
+        </div>
+        <td>
+          <%= link_to product_path(product.id) do%>
+            <%= product.title.truncate(20) %>
+          <% end %>
+        </td><br/>
+        <td><h5 class="text-primary">¥ <%= product.price %></h5></td>
+        <td><%= product.content.truncate(23) %></td>
+      </div>
+    <% end %>
+  </div>
+</div>

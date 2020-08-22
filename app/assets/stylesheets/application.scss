@@ -1,17 +1,20 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
-.slick-dots {
-  li {
-    font-size: 20px !important;
-    button:before {
-      content: "🍅" !important;
-      font-size: 18px !important;
-      color: rgb(60, 60, 60) !important;
-    }
-  }
+.carousel-control-next, .carousel-control-prev {
+  width: 5%;
+  background-color: #996633;
+}
+
+.home_title {
+  position: relative;
+  border-top: solid 2px #80c8d1;
+  border-bottom: solid 2px #80c8d1;
+  line-height: 1.4;
+  padding: 0.4em 0.5em;
+  margin: 2em 0 0.5em;
 }
 
 .box{
-    padding: 0.5em 1em;
+    padding: 0.5em 0.2em;
     margin: 0.5em 0;
     background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
     background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
@@ -128,5 +131,3 @@ $theme-colors: (
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "slick-theme";
-@import "slick";
