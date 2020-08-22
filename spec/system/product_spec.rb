@@ -164,7 +164,7 @@ RSpec.describe '生産者出品機能と商品検索と詳細機能とコメン�
 
         it '生産者がユーザーにメッセージを送るためにメッセージルームを作る' do
           producer_login
-          click_on 'ユーザーとのメッセージ'
+          click_on 'ユーザーとのメッセージ', match: :first
           click_on '登録する', match: :first
           fill_in 'message[content]', with: '初めまして！！'
           click_on 'メッセージを送る'
