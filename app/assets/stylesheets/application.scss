@@ -15,38 +15,9 @@
 
 .box{
     padding: 0.5em 0.2em;
-    margin: 0.5em 0;
     background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
     background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
 }
-.box p {
-    margin: 0;
-    padding: 0;
-}
-
-.example{
-    position: relative;
-}
-
-.example p {
-    position: absolute;
-    transform: rotate(-20deg);
-    font-size: 28px;
-    left: 25%;
-    margin:-15px 0px 0px -65px;
-    color: #F00;
-    letter-spacing: 2px;
-    font-weight: 600;
-}
-
-.example img{
-  position: absolute;
-  top: 5%;
-  left: 85%;
-  transform: translateY(-50%) translateX(-50%);
-  -webkit-transform: translateY(-50%) translateX(-50%);
-}
-
 
 .talk_room{
 	background-color:rgb(113,147,193);
@@ -104,12 +75,6 @@
 .btn-sticky:active {
   box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
   transform: translateY(2px);
-}
-
-.slick-slide img {
-  height: 20vw;
-  max-height: 300px;
-  min-height: 200px;
 }
 
 .img{
