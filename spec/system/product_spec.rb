@@ -26,23 +26,6 @@ RSpec.describe '生産者出品機能と商品検索と詳細機能とコメン�
 
 
   describe '生産品出品画面' do
-    context '生産品出品画面で出品商品を作成したい場合' do
-      it '商品を出品する' do
-        producer_login
-        visit products_path
-        visit new_product_path
-        fill_in 'product[title]', with: 'フルーツ詰め合わせ'
-        fill_in 'product[price]', with: '2000'
-        fill_in 'product[quantity]', with: '3'
-        fill_in 'product[content]', with: '美味しいよ！！'
-        fill_in 'product[harvest_date]', with: '2020-08-10　00:00:00'
-        fill_in 'product[farm_name]', with: 'TS農園'
-        fill_in 'product[farm_street_address]', with: '長野県松本市'
-        check "新鮮"
-        click_on '出品する'
-        expect(page).to have_content '商品一覧'
-      end
-    end
     context 'scopeメソッドで検索をした場合' do
       it "scopeメソッドでタイトル検索ができる" do
         producer_login
