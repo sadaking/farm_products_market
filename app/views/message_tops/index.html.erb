@@ -1,8 +1,7 @@
 <br/>
-<div class="mx-auto p-4 border border-primary rounded" style="border:solid 1px #343a40; max-width:700px;">
-  <h3 class="text-center" style="margin-bottom:30px;">メッセージ先一覧画面</h3>
+<div class="mx-auto p-4 border border-primary rounded" style="border:solid 1px #343a40; max-width:700px; margin-top:30px;">
   <% if user_signed_in? %>
-    <h4>生産者一覧</h4>
+    <h5 class="text-center home_title" style="margin-bottom:30px;">生産者一覧</h5>
     <br>
     <% @producers.each do |producer| %>
       <% if producer.producer_avatar.attached? %>
@@ -14,7 +13,6 @@
       <% end %>
       <%= producer.producer_name %>さん
       <% if @producer_ids.include?(producer.id) %>
-        <br>
         <%= link_to "チャットへ", room_path(current_user.rooms.find_by(producer_id: producer.id)) , class: " btn btn-primary"%><br><br/>
       <% else %>
         <%= form_for Room.new do |f| %>
@@ -24,7 +22,7 @@
       <% end %>
     <% end %>
   <% elsif producer_signed_in? %>
-    <h4>ユーザー一覧</h4>
+      <h5 class="text-center home_title text-primary" style="margin-bottom:30px;">ユーザー一覧</h5>
     <br>
     <% @users.each do |user| %>
       <% if user.avatar.attached? %>
@@ -34,14 +32,13 @@
                                                             crop:"220x220+0+0"}).processed,
                                                             class: "img border-primary image_size"%>
       <% end %>
-      <%= user.name %>さん
+      <p class="alert alert-warning rounded"><%= user.name %>さん</p>
       <% if @user_ids.include?(user.id) %>
-      <br>
-        <%= link_to "チャットへ", room_path(current_producer.rooms.find_by(user_id: user.id)) , class: "btn btn-primary"%><br/><br/>
+        <%= link_to "チャットへ", room_path(current_producer.rooms.find_by(user_id: user.id)) , class: "btn btn-primary position-relative", style: "bottom:60px; left:530px;"%><br/>
       <% else %>
         <%= form_for Room.new do |f| %>
           <%= f.hidden_field :user_id, :value => user.id %>
-          <%= f.submit class: "btn btn-primary" ,id: "createroom"%>
+          <%= f.submit class: "btn btn-primary position-relative" ,id: "createroom" ,style: "bottom:60px; left:545px;"%>
         <% end %>
       <% end %>
     <% end %>
