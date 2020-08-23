@@ -1,32 +1,34 @@
 <%= form_with(model: @product, local: true)do |form| %>
   <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @product.errors.count %>件のエラーがあります。</h2>
-      <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="mx-auto p-2 border border-warning rounded" style="border:solid 1px; max-width:500px; margin-bottom:40px;">
+      <div id="error_explanation" class="text-danger">
+        <h3 class="alert alert-warning rounded"><%= @product.errors.count %>件のエラーがあります。</h3>
+        <ul>
+        <% @product.errors.full_messages.each do |msg| %>
+          <li class="list-unstyled"><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
   <div class="form-group">
-    <%= form.label :商品タイトル %><br />
+    <%= form.label :title ,class: "text-primary"%><br />
     <%= form.text_field :title, autoformocus: true , class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :価格 %><br />
+    <%= form.label :price ,class: "text-primary"%><br />
     <%= form.text_field :price, autoformocus: true , class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :在庫数 %><br />
+    <%= form.label :quantity ,class: "text-primary"%><br />
     <%= form.text_field :quantity, autoformocus: true , class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :商品イメージ写真%><br/>
+    <%= form.label :image ,class: "text-primary"%><br/>
     <%= form.label :image, class: "btn btn-info" do %>
       <i class="far fa-image"> メイン画像ファイルを選択</i>
     <% end %>
@@ -39,28 +41,27 @@
 
 
   <div class="form-group">
-    <%= form.label :紹介アピール %><br />
+    <%= form.label :content ,class: "text-primary"%><br />
     <%= form.text_area :content, size: "2x10", autoformocus: true , class: "form-control" ,placeholder: "※300文字まで"%>
   </div>
 
   <div class="form-group">
-    <%= form.label :収穫日 %><br />
+    <%= form.label :harvest_date ,class: "text-primary"%><br />
     <%= form.date_field :harvest_date %>
   </div>
 
   <div class="form-group">
-    <%= form.label :農場名 %><br />
+    <%= form.label :farm_name ,class: "text-primary" %><br />
     <%= form.text_field :farm_name, autoformocus: true , class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :住所 %><br />
+    <%= form.label :farm_street_address %><br />
     <%= form.text_field :farm_street_address, autoformocus: true , class: "form-control" %>
   </div>
 
   <div class="task_label">
-    <%= form.label :label, "生産品にラベルをつけてみよう↓↓" %>
-    <br>
+    <%= form.label :label, "生産品にラベルをつけてみよう↓↓" ,class: "text-primary"%><br/>
     <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
   </div>
 

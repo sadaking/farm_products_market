@@ -1,6 +1,9 @@
 require 'rails_helper'
 RSpec.describe '出品製品の管理機能', type: :model do
 
+  let(:image_path) { File.join(Rails.root, 'spec/factories/images/vegetables.jpeg') }
+  let(:image) { Rack::Test::UploadedFile.new(image_path) }
+
   before do
     @producer = FactoryBot.create(:producer)
   end
@@ -15,6 +18,7 @@ RSpec.describe '出品製品の管理機能', type: :model do
       title: '',
       price:'2000',
       quantity:'3',
+      image: image,
       content:'めっちゃ美味しい！！',
       harvest_date:'2020-08-10　00:00:00',
       farm_name:'TS農園',
@@ -29,6 +33,7 @@ RSpec.describe '出品製品の管理機能', type: :model do
       title: '野菜詰め合わせ',
       price:'',
       quantity:'3',
+      image: image,
       content:'めっちゃ美味しい！！',
       harvest_date:'2020-08-10　00:00:00',
       farm_name:'TS農園',
@@ -43,6 +48,7 @@ RSpec.describe '出品製品の管理機能', type: :model do
       title: '野菜詰め合わせ',
       price:'2000',
       quantity:'',
+      image: image,
       content:'めっちゃ美味しい！！',
       harvest_date:'2020-08-10　00:00:00',
       farm_name:'TS農園',
@@ -52,11 +58,27 @@ RSpec.describe '出品製品の管理機能', type: :model do
     expect(product).not_to be_valid
   end
 
+  it 'imageが空ならバリデーションが通らない' do
+    product = Product.new(
+      title: '野菜詰め合わせ',
+      price:'2000',
+      quantity:'3',
+      content:'めっちゃ美味しい！！',
+      harvest_date:'2020-08-10　00:00:00',
+      farm_name:'TS農園',
+      farm_street_address:'長野県松本市松本',
+      producer_id: 50
+    )
+    expect(product).not_to be_valid
+  end
+
+
   it 'contentが空ならバリデーションが通らない' do
     product = Product.new(
       title: '野菜詰め合わせ',
       price:'2000',
       quantity:'3',
+      image: image,
       content:'',
       harvest_date:'2020-08-10　00:00:00',
       farm_name:'TS農園',
@@ -66,11 +88,12 @@ RSpec.describe '出品製品の管理機能', type: :model do
     expect(product).not_to be_valid
   end
 
-  it 'farm_nameが空ならバリデーションが通らない' do
+  it 'harvest_dateが空ならバリデーションが通らない' do
     product = Product.new(
       title: '野菜詰め合わせ',
       price:'2000',
       quantity:'3',
+      image: image,
       content:'めっちゃ美味しい！！',
       harvest_date:'',
       farm_name:'TS農園',
@@ -80,11 +103,28 @@ RSpec.describe '出品製品の管理機能', type: :model do
     expect(product).not_to be_valid
   end
 
+  it 'harvest_dateの日付が作成日以降ならバリデーションが通らない' do
+    product = Product.new(
+      title: '野菜詰め合わせ',
+      price:'2000',
+      quantity:'3',
+      image: image,
+      content:'めっちゃ美味しい！！',
+      harvest_date:'2050-08-10　00:00:00',
+      farm_name:'TS農園',
+      farm_street_address:'長野県松本市松本',
+      producer_id: 50
+    )
+    expect(product).not_to be_valid
+  end
+
+
   it 'farm_nameが空ならバリデーションが通らない' do
     product = Product.new(
       title: '野菜詰め合わせ',
       price:'2000',
       quantity:'3',
+      image: image,
       content:'めっちゃ美味しい！！',
       harvest_date:'2020-08-10　00:00:00',
       farm_name:'',
@@ -99,6 +139,7 @@ RSpec.describe '出品製品の管理機能', type: :model do
       title: '野菜詰め合わせ',
       price:'2000',
       quantity:'3',
+      image: image,
       content:'めっちゃ美味しい！！',
       harvest_date:'2020-08-10　00:00:00',
       farm_name:'TS農園',
@@ -113,6 +154,7 @@ RSpec.describe '出品製品の管理機能', type: :model do
       title: '野菜詰め合わせ',
       price:'2000',
       quantity:'3',
+      image: image,
       content:'めっちゃ美味しい！！',
       harvest_date:'2020-08-10　00:00:00',
       farm_name:'TS農園',

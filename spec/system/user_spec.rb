@@ -9,6 +9,7 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能', type: :
         fill_in 'user[postal_code]', with: '1000014'
         select '東京都', from: "user_prefecture_code"
         fill_in 'user[address_city]', with: '千代田区永田町'
+        sleep 0.5
         fill_in 'user[address_street]', with: '1234'
         fill_in 'user[address_building]', with: '国会議事堂'
         fill_in 'user[password]', with: 'usertest'
