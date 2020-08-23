@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    attributes:
+      product:
+        confirmation_sent_at: パスワード確認送信時刻
+        confirmation_token: パスワード確認用トークン
+        confirmed_at: パスワード確認時刻
+        created_at: 作成日
+        current_password: 現在のパスワード
+        current_sign_in_at: 現在のログイン時刻
+        current_sign_in_ip: 現在のログインIPアドレス
+        title: 商品タイトル
+        price: 価格
+        quantity: 在庫
+        image: 商品イメージ写真
+        content: 紹介アピール
+        harvest_date: 収穫日
+        farm_name: 農場名
+        farm_street_address: 住所
