@@ -12,12 +12,22 @@
             <% end %>
           </div>
           <% if product.producer.producer_avatar.attached? %>
+          <% if product.quantity == 0%>
+            <p>soldout</p>
+                <%= image_tag product.producer.producer_avatar.variant(combine_options:{gravity: :center,
+                                                                border:'2',
+                                                                resize:"50x95^",
+                                                                crop:"100x100+0+0"}).processed,
+                                                                class: "img border-primary"
+                                                                %>
+            <% else %>
             <%= image_tag product.producer.producer_avatar.variant(combine_options:{gravity: :center,
                                                             border:'2',
                                                             resize:"50x95^",
                                                             crop:"100x100+0+0"}).processed,
-                                                            class: "position-relative img border-primary",
-                                                            style: "margin-bottom: -105px; bottom:100px; left:150px;"%>
+                                                            class: "img border-primary"
+                                                            %>
+            <% end %>
           <% end %>
         </div>
         <td>
