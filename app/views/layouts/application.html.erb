@@ -82,60 +82,60 @@
         <%= render "layouts/flash" %>
       </div>
       <%= yield %>
-      <footer class="fixed-bottom bg-success d-block">
+      <footer class="d-block" style="margin-top:70px;">
         <div class="container my-2">
           <div class="row">
             <div class="col">
               <%= link_to  root_path, class: "text-center  d-block py-2 w-100", title: "ホーム" do %>
-                <i class="fas fa-seedling fa-2x"></i>
+                <i class="fas fa-seedling fa-3x"></i>
               <% end %>
             </div>
             <% if user_signed_in? %>
               <div class="col">
                 <%= link_to new_card_path, class: "text-center d-block py-2 w-100", title: "クレジット登録/削除" do %>
-                  <i class="fas fa-credit-card fa-2x"></i>
+                  <i class="fas fa-credit-card fa-3x"></i>
                 <% end %>
               </div>
               <div class="col">
                 <%= link_to message_tops_path, class: "text-center d-block py-2 w-100", title: "生産者とのメッセージ" do %>
-                  <i class="fas fa-envelope fa-2x"></i>
+                  <i class="fas fa-envelope fa-3x"></i>
                 <% end %>
               </div>
               <div class="col">
                 <%= link_to destroy_producer_session_path, method: :delete, class: "text-center d-block py-2 w-100", title: "ログアウト" do %>
-                  <i class="fas fa-sign-out-alt fa-2x"></i>
+                  <i class="fas fa-sign-out-alt fa-3x"></i>
                 <% end %>
               </div>
             <% elsif producer_signed_in? %>
               <div class="col">
                 <%= link_to new_product_path, class: "text-center d-block py-2 w-100", title: "出品" do %>
-                  <i class="fas fa-shipping-fast fa-2x"></i>
+                  <i class="fas fa-shipping-fast fa-3x"></i>
                 <% end %>
               </div>
               <div class="col">
                 <%= link_to message_tops_path, class: "text-center d-block py-2 w-100", title: "ユーザーとのメッセージ" do %>
-                  <i class="fas fa-envelope fa-2x"></i>
+                  <i class="fas fa-envelope fa-3x"></i>
                 <% end %>
               </div>
               <div class="col">
                 <%= link_to destroy_producer_session_path, method: :delete, class: "text-center d-block py-2 w-100", title: "ログアウト" do %>
-                  <i class="fas fa-sign-out-alt fa-2x"></i>
+                  <i class="fas fa-sign-out-alt fa-3x"></i>
                 <% end %>
               </div>
             <% else %>
               <div class="col">
                 <%= link_to new_user_registration_path, class: "text-center d-block py-2 w-100", title: "ユーザー登録" do %>
-                  <i class="fas fa-sign-in-alt fa-2x"></i>
+                  <i class="fas fa-sign-in-alt fa-3x"></i>
                 <% end %>
               </div>
               <div class="col">
                 <%= link_to new_user_session_path, class: "text-center d-block py-2 w-100", title: "ユーザーログイン" do %>
-                  <i class="fas fa-user fa-2x"></i>
+                  <i class="fas fa-user fa-3x"></i>
                 <% end %>
               </div>
               <div class="col">
                 <%= link_to new_producer_registration_path, class: "text-center d-block py-2 w-100", title: "生産者登録" do %>
-                  <i class="fas fa-hat-cowboy fa-2x"></i>
+                  <i class="fas fa-hat-cowboy fa-3x"></i>
                 <% end %>
               </div>
             <% end %>
