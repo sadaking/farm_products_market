@@ -1,58 +1,61 @@
-<div class="container" style="padding-top:4.5rem;">
-  <div class="mx-auto p-4  border border-info rounded" style="border:solid 1px; max-width:80rem;">
-    <h2>クレジットカード情報入力</h2>
+<div class="container" style="padding-top:2.5rem; padding-bottom:2.5rem;">
+  <div class="mx-auto p-4  border border-primary rounded" style="border:solid 1px; max-width:40rem;">
+    <h3 class="home_title text-primary">クレジットカード情報入力</h3>
     <%= form_tag(pay_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do %>
-      <div class="form-group">
+      <div class="form-group" style="padding-top:1rem;">
         <label>カード番号</label>
-        <span class="required">必須</span>
+        <span class="required alert-danger rounded">※必須</span>
         <br/>
-        <%= text_field_tag "number", "", class: "input-default", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number" %>
+        <%= text_field_tag "number", "", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number" , :size=>"5",:class => "form-control" %>
       </div>
-      <div class="form-group">
-        <label>有効期限</label>
-        <span class="required">必須</span>
-        <br/>
-        <select class="card-valid" id="exp_month" name="exp_month" type="text">
-          <option>--</option>
-          <option value="1">01</option>
-          <option value="2">02</option>
-          <option value="3">03</option>
-          <option value="4">04</option>
-          <option value="5">05</option>
-          <option value="6">06</option>
-          <option value="7">07</option>
-          <option value="8">08</option>
-          <option value="9">09</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-        </select>
-        <span>月/</span>
-        <select class="card-valid" id="exp_year" name="exp_year" type="text">
-          <option>--</option>
-          <option value="2020">20</option>
-          <option value="2021">21</option>
-          <option value="2022">22</option>
-          <option value="2023">23</option>
-          <option value="2024">24</option>
-          <option value="2025">25</option>
-          <option value="2026">26</option>
-          <option value="2027">27</option>
-          <option value="2028">28</option>
-          <option value="2029">29</option>
-          <option value="2030">30</option>
-        </select>
+      <label>有効期限</label>
+      <span class="required alert-danger rounded">※必須</span><br/>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <select class="card-valid form-control" id="exp_month" name="exp_month" type="text">
+            <option>--</option>
+            <option value="1">01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+            <option value="6">06</option>
+            <option value="7">07</option>
+            <option value="8">08</option>
+            <option value="9">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+          </div>
+          <span>月/</span>
+          <div class="form-group col-md-3">
+          <select class="card-valid form-control" id="exp_year" name="exp_year" type="text">
+            <option>--</option>
+            <option value="2020">20</option>
+            <option value="2021">21</option>
+            <option value="2022">22</option>
+            <option value="2023">23</option>
+            <option value="2024">24</option>
+            <option value="2025">25</option>
+            <option value="2026">26</option>
+            <option value="2027">27</option>
+            <option value="2028">28</option>
+            <option value="2029">29</option>
+            <option value="2030">30</option>
+          </select>
+        </div>
         <span>年</span>
       </div>
       <div class="form-group">
-        <label>セキュリティコード</label>
-        <span class="required">必須</span>
+        <label class="">セキュリティコード</label>
+        <span class="required alert-danger rounded">※必須</span>
         <br/>
-        <%= text_field_tag "cvc", "", class: "input-default", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc" %>
+        <%= text_field_tag "cvc", "", class: "form-control", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc" %>
       </div>
       <div class="form-group">
         <div id="card_token"></div>
-        <%= submit_tag "カード登録を行う", id: "token_submit", class: 'btn btn-primary' %>
+        <%= submit_tag "カード登録を行う", id: "token_submit", class: 'btn btn-info ' %>
       </div>
     <% end %>
   </div>
