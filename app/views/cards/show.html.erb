@@ -1,15 +1,19 @@
-<div class="container" style="padding-top:4.5rem;">
-  <div class="mx-auto p-4  border border-info rounded" style="border:solid 1px; max-width:80rem;">
-    <label>登録クレジットカード</label>
-    <br/>
-    <%= "**** **** **** " + @default_card_information.last4 %>
-    <br/>
-    <% exp_month = @default_card_information.exp_month.to_s %>
-    <% exp_year = @default_card_information.exp_year.to_s.slice(2,3) %>
-    <%= exp_month + " / " + exp_year %>
+<div class="container" style="padding-top:2.5rem; padding-bottom:2.5rem;">
+  <div class="mx-auto p-4  border border-primary rounded" style="border:solid 1px; max-width:40rem;">
+    <h4 class="home_title text-primary text-center">登録クレジットカード</h4>
+    <div style="padding-top:1rem; padding-bottom:1rem;">
+      <label class="required text-primary">カード番号</label><br/>
+      <%= "**** **** **** " + @default_card_information.last4%>
+    </div>
+    <div style="padding-top:1rem; padding-bottom:1rem;">
+      <label class="required text-primary">有効期限</label><br/>
+      <% exp_month = @default_card_information.exp_month.to_s %>
+      <% exp_year = @default_card_information.exp_year.to_s.slice(2,3) %>
+      <%= exp_month + " / " + exp_year %>
+    </div>
     <%= form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do %>
       <input name="card_id" type="hidden">
-      <button>削除する</button>
+      <button class='float-right btn btn-info'>削除する</button><br/>
     <% end %>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="mx-auto p-4 my-4 border border-primary rounded" style="border:solid 1px; max-width:1000px;">
-    <h2>商品詳細画面</h2>
+    <h3 class="home_title text-primary text-center">商品詳細画面</h3>
     <div class="alert alert-light" role="alert">
       <p id="notice"><%= notice %></p>
     </div>
@@ -21,7 +21,7 @@
           </p>
         <% end %>
       </div>
-      <p class="form-control border border-primary rounded"><%= @product.title %></p>
+      <p class="form-control text-primary font-weight-bold border border-primary rounded"><%= @product.title %></p>
       <p>
         <% @product.labels.each do |label| %>
           <label class='btn-sticky'><%= label.name %></label>
