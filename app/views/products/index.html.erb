@@ -60,7 +60,7 @@
           <%= form.label :label_id_search, class: "text-primary" do %>
             <i class="fas fa-tags"> ラベル検索</i>
           <% end %><br/>
-          <%= form.select("label_id", Label.all.pluck(:name, :id), { include_blank:"選択する",include_hidden: false },  {  class: "form-control", required: true }) %><br/>
+          <%= form.select("label_id", Label.all.pluck(:name, :id), { include_blank:"選択する",include_hidden: false },  {  class: "form-control" }) %><br/>
           <%= form.hidden_field :search, value:"true" %>
           <%= form.submit name="検索する" , class: "form-control btn btn-info"%>
         <% end %>
