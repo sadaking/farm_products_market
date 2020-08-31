@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: %i[pay]
 
   def index
-    @products = Product.all.page(params[:page]).per(16)
+    @products = Product.all.order(id: "DESC").page(params[:page]).per(16)
 
     if params[:search].present?
       @products = Product.title_search(params[:title]).page(params[:page]).per(16)
