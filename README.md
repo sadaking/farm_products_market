@@ -1,6 +1,7 @@
-# README
+## README
 
 # 農産物販売サイト
+<img width="1439" alt="スクリーンショット 2020-08-27 11 40 31" src="https://user-images.githubusercontent.com/58016658/92447030-b0921f00-f1f1-11ea-87f3-0f0fff6b0478.png">
 
 ## 概要
 全国の農家が収穫した農産物ネット上で販売し、販売された作物を消費者は当サイトから購入できる。
@@ -25,6 +26,9 @@ Ruby 2.6.5 Rails 5.2.4.3
 - [ ] ラベル機能
 - [ ] 決済機能
 - [ ] お気に入り機能
+
+## サービス構成図
+![サービス構成図](https://user-images.githubusercontent.com/58016658/92571063-9b82c200-f2bd-11ea-8f37-8f94a5ff3e85.png)
 
 ## カタログ設計
 https://docs.google.com/spreadsheets/d/1Tz_Ed3fgBlzcLpB4qteM9LdzfzXaLfVlnxdeILv1t2Q/edit#gid=0
