@@ -29,7 +29,7 @@ class CardsController < ApplicationController
   def delete
     card = Card.where(user_id: current_user.id).first
     if card.blank?
-      redirect_to action: "new", alert: "クレジットカードを除法がありません。"
+      redirect_to action: "new", alert: "クレジットカードを情報がありません。"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
