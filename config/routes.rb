@@ -1,9 +1,32 @@
 Rails.application.routes.draw do
+  #ホーム画面
   root to: 'products#index'
+
+  #生産者情報関連
+  devise_for :producers, controllers: {
+    sessions:      'producers/sessions',
+    passwords:     'producers/passwords',
+    registrations: 'producers/registrations'
+  }
+  resources :producers, only: %i[show]
+
+  #消費者情報関連
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations'
+  }
+  resources :users, only: %i[show]
+  #管理者
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  #商品関連
   resources :products
   resources :products do
+    #コメント
     resources :comments
-    resources :purchases, only: [:index] do
+    #購入処理
+    resources :purchases, only: %i[index] do
       collection do
         get 'index', to: 'purchases#index'
         post 'pay', to: 'purchases#pay'
@@ -11,34 +34,20 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  #お気に入り
   resources :favorites, only: %i[create destroy index]
+
+  #メッセージ一覧画面
   resources :message_tops, only: %i[index]
 
-  devise_for :producers, controllers: {
-    sessions:      'producers/sessions',
-    passwords:     'producers/passwords',
-    registrations: 'producers/registrations'
-  }
-  resources :producers, only: [:show]
-
-  devise_for :users, controllers: {
-    sessions:      'users/sessions',
-    passwords:     'users/passwords',
-    registrations: 'users/registrations'
-  }
-  resources :users, only: [:show]
-
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  #メッセージルーム
+  resources :rooms, only: %i[show create] do
+    resources :messages, only: %i[create]
   end
 
-  resources :rooms, :only => [:show, :create] do
-    resources :messages, :only => [:create]
-  end
-
-  resources :cards, only: [:new, :show] do
+  #カード情報関連
+  resources :cards, only: %i[new show] do
     collection do
       post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
