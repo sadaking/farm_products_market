@@ -26,5 +26,6 @@ class User < ApplicationRecord
    has_one :credit_card, dependent: :destroy
    has_many :rooms
    has_many :favorites, dependent: :destroy
+   has_many :favorite_persons, dependent: :destroy
    has_one_attached :avatar
 end
