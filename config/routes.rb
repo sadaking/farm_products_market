@@ -35,7 +35,10 @@ Rails.application.routes.draw do
     end
   end
 
-  #お気に入り
+  #商品のお気に入り
+  resources :favorite_persons, only: %i[create destroy index]
+
+  #生産者のお気に入り
   resources :favorites, only: %i[create destroy index]
 
   #メッセージ一覧画面
