@@ -1,0 +1,16 @@
+<div class="container">
+  <br/>
+  <h3>お気に入り一覧</h3>
+  <br/>
+  <div class="row">
+  <% @favorite_persons.each  do |favorite_person| %>
+    <tr>
+      <div class="box">
+        <%= link_to producer_path(favorite_person.producer.id) do%>
+          <%= favorite_person.producer.producer_name %>
+        <% end %>
+      </div>
+    </tr>
+  <% end %>
+  </div>
+</div>
