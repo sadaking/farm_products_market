@@ -13,5 +13,7 @@ class Producer < ApplicationRecord
 
   has_many :products
   has_many :rooms
+  has_many :favorite_persons, dependent: :destroy
+  has_many :favorite_person_users, through: :favorite_persons, source: :user
   has_one_attached :producer_avatar
 end
