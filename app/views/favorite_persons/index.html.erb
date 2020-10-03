@@ -1,16 +1,23 @@
 <div class="container">
   <br/>
-  <h3>お気に入り一覧</h3>
+  <h3 class="home_title text-center">お気に入り生産者一覧</h3>
   <br/>
-  <div class="row">
-  <% @favorite_persons.each  do |favorite_person| %>
-    <tr>
-      <div class="box">
-        <%= link_to producer_path(favorite_person.producer.id) do%>
-          <%= favorite_person.producer.producer_name %>
-        <% end %>
-      </div>
-    </tr>
-  <% end %>
+  <div class="col">
+    <div class="row">
+    <% @favorite_persons.each  do |favorite_person| %>
+      <tr>
+        <div class="card ml-2 mb-2 mr-2 rounded border-primary" style="width: 13rem;">
+          <% if favorite_person.producer.producer_avatar.attached?%>
+            <%= image_tag favorite_person.producer.producer_avatar.variant(combine_options:{gravity: :center,border:'2', resize:"180x180^",crop:"220x220+0+0"}).processed ,class: "rounded"%>
+          <% end %>
+          <div class="box ml-2 mb-2 mr-2">
+            <%= link_to producer_path(favorite_person.producer.id) do%>
+              <%= favorite_person.producer.producer_name %>
+            <% end %>
+          </div>
+        </div>
+      </tr>
+    <% end %>
+    </div>
   </div>
 </div>
