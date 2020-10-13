@@ -11,10 +11,14 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require activestorage
 //= require jquery3
 //= require popper
+//= require activestorage
 //= require bootstrap-sprockets
+//= require summernote/summernote-bs4.min
+//= require summernote-init
+// load specific locale(ja-JP)
+//= require summernote/lang/summernote-ja-JP
 //= require jquery.jpostal
 //= require_tree .
 
