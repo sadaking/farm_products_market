@@ -17,3 +17,5 @@ ja:
         harvest_date: 収穫日
         farm_name: 農場名
         farm_street_address: 住所
+      blog:
+        title: ブログタイトル

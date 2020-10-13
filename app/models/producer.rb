@@ -16,4 +16,5 @@ class Producer < ApplicationRecord
   has_many :favorite_persons, dependent: :destroy
   has_many :favorite_person_users, through: :favorite_persons, source: :user
   has_one_attached :producer_avatar
+  has_many :blogs, dependent: :destroy
 end
