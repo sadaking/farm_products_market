@@ -1,4 +1,4 @@
-<div class="container bg-white">  
+<div class="container bg-white">
   <h3 class="home_title">ブログ一覧</h3>
 
   <div>
@@ -7,12 +7,12 @@
 
   <div style="margin-top:100px;">
     <% @blogs.each do |blog| %>
-      <div class="card ml-2 mb-2 mr-2 rounded border-primary" style="width: 20rem;">
+      <div class="card my-3">
         <div class="card-header alert-info">
-          タイトル：<%= blog.title %>
+          ブログタイトル：<%= blog.title %>
         </div>
         <div class="card-body">
-          <%= blog.content.html_safe.truncate(23) %>
+          <%= blog.content.html_safe %>
           <% if blog.producer == current_producer %>
             <div class="text-right">
               <%= link_to "編集", edit_blog_path(blog) %>
