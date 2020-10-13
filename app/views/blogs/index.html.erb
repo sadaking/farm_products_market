@@ -1,0 +1,26 @@
+<div class="container bg-white">  
+  <h3 class="home_title">ブログ一覧</h3>
+
+  <div>
+    <%= link_to "新規作成", new_blog_path, class: "btn btn-info float-right" %>
+  </div>
+
+  <div style="margin-top:100px;">
+    <% @blogs.each do |blog| %>
+      <div class="card ml-2 mb-2 mr-2 rounded border-primary" style="width: 20rem;">
+        <div class="card-header alert-info">
+          タイトル：<%= blog.title %>
+        </div>
+        <div class="card-body">
+          <%= blog.content.html_safe.truncate(23) %>
+          <% if blog.producer == current_producer %>
+            <div class="text-right">
+              <%= link_to "編集", edit_blog_path(blog) %>
+              <%= link_to "削除", blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

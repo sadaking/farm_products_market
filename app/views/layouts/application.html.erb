@@ -6,9 +6,9 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://js.pay.jp/" type="text/javascript"></script>
   </head>
 
@@ -57,6 +57,7 @@
                       <div class="dropdown-item"><%= link_to "ログアウト", destroy_producer_session_path, method: :delete%></div>
                       <div class="dropdown-item"><%= link_to "プロフィール", producer_path(current_producer.id)%></div>
                       <div class="dropdown-item"><%= link_to "プロフィール編集", edit_producer_registration_path%></div>
+                      <div class="dropdown-item"><%= link_to "ブログ", blogs_path%></div>
                     </div>
                   </li>
                 <% else %>

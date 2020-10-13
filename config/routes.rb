@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :users, only: %i[show]
+
+  #ブログ機能
+  resources :blogs, only: %i(index new create edit update destroy)
+
   #管理者
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
