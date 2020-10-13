@@ -55,7 +55,7 @@ https://docs.google.com/spreadsheets/d/1q_dwfa1uvklDVA2erMZ-tM1SEunCZUNX7UBlcs3M
 https://docs.google.com/spreadsheets/d/1NyCRu6jG3Vt-kRJba_fFej_veoWkOmEmKGzPIGrCtPs/edit#gid=0
 
 ## ER図
-https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=ER%E5%9B%B3%20-%20%E5%8D%92%E6%A5%AD%E8%AA%B2%E9%A1%8C#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1q1Yh5bU71LcGzU4W8DLCOJla4mpd2sxY%26export%3Ddownload
+![ER図 - 卒業課題](https://user-images.githubusercontent.com/58016658/95808149-c93caa00-0d46-11eb-94f6-b298a1f4ccfe.jpg)
 
 ## 画面ワイヤーフレーム
 https://docs.google.com/spreadsheets/d/1X4LX03Ajx_KTAyTvavfhTM_5IXZvFNf2MwNt-RiKjXc/edit#gid=0
