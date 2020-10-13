@@ -28,6 +28,8 @@ gem "aws-sdk-s3", require: false
 gem 'kaminari'
 gem 'seed-fu'
 gem 'faker'
+gem 'simple_form'
+gem 'summernote-rails'
 
 
 # Use Capistrano for deployment
