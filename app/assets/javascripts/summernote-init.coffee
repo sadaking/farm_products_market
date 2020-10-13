@@ -1,4 +1,4 @@
-$(document).on 'turbolinks:load', ->
+$ ->
   $('[data-provider="summernote"]').each ->
     $(this).summernote
       lang: 'ja-JP',
@@ -10,7 +10,7 @@ $(document).on 'turbolinks:load', ->
         ['para', ['ul', 'ol', 'paragraph']],
         ['insert', ['link', 'picture', 'video']],
       ],
-      placeholder: 'ブログの内容を入力してください。'
+      placeholder: 'ブログの内容を入力してください。(※写真📷、動画📹も投稿できます！)'
       styleTags: [
         'p',
             { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' },
