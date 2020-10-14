@@ -40,9 +40,11 @@ ActiveRecord::Schema.define(version: 2020_10_13_052624) do
     t.string "title"
     t.text "content"
     t.bigint "producer_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["producer_id"], name: "index_blogs_on_producer_id"
+    t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
   create_table "cards", force: :cascade do |t|
@@ -183,6 +185,7 @@ ActiveRecord::Schema.define(version: 2020_10_13_052624) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "blogs", "producers"
+  add_foreign_key "blogs", "users"
   add_foreign_key "cards", "users"
   add_foreign_key "comments", "products"
   add_foreign_key "labelings", "labels"

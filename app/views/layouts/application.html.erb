@@ -37,6 +37,7 @@
                       <div class="dropdown-item"><%= link_to "生産者とのメッセージ", message_tops_path%></div>
                       <div class="dropdown-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete%></div>
                       <div class="dropdown-item"><%= link_to "プロフィール", user_path(current_user.id)%></div>
+                      <div class="dropdown-item"><%= link_to "ブログ", blogs_path%></div>
                     </div>
                   </li>
                 <% elsif producer_signed_in? %>

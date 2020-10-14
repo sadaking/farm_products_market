@@ -1,5 +1,4 @@
 class BlogsController < ApplicationController
-  before_action :authenticate_producer!
   before_action :set_blog, only: %i(show edit update destroy)
 
   def index
@@ -7,11 +6,11 @@ class BlogsController < ApplicationController
   end
 
   def new
-    @blog = current_producer.blogs.build
+    @blog = current_user_or_producer.blogs.build
   end
 
   def create
-    @blog = current_producer.blogs.build(blog_params)
+    @blog = current_user_or_producer.blogs.build(blog_params)
     if @blog.save
       redirect_to blogs_path, notice: "投稿しました！"
     else
@@ -37,6 +36,10 @@ class BlogsController < ApplicationController
   end
 
   private
+
+  def current_user_or_producer
+    current_user || current_producer
+  end
 
   def set_blog
     @blog = Blog.find(params[:id])

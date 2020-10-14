@@ -17,11 +17,19 @@
           </div>
         </div>
         <div class="card-body">
-          <%= blog.content.html_safe %>
           <div class="text-right text-primary">
-            投稿者 : <%= blog.producer.producer_name%>
+            <% if blog.user %>
+              <%= blog.user.name %>(消費者)
+            <% elsif blog.producer%>
+              <%= blog.producer.producer_name %>(農家)
+            <% end %>
           </div>
-          <% if blog.producer == current_producer %>
+          <% if blog.user == current_user %>
+            <div class="text-right">
+              <%= link_to "編集", edit_blog_path(blog) %>
+              <%= link_to "削除", blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          <% elsif blog.producer == current_producer %>
             <div class="text-right">
               <%= link_to "編集", edit_blog_path(blog) %>
               <%= link_to "削除", blog, method: :delete, data: { confirm: 'Are you sure?' } %>
