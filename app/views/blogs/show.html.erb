@@ -1,0 +1,23 @@
+<div class="container bg-white">
+  <h4 class="home_title"><%= @blog.title %></h4>
+
+  <div style="margin-top:100px;">
+    <div class="card my-3">
+      <div class="card-header alert-info">
+        <%= @blog.title %>
+        <div class="float-right">
+          投降日 : <%= @blog.created_at.strftime("%Y年%m月%d日")%>
+        </div>
+      </div>
+      <div class="card-body">
+        <%= @blog.content.html_safe %>
+        <% if @blog.producer == current_producer %>
+          <div class="text-right">
+            <%= link_to "編集", edit_blog_path(@blog) %>
+            <%= link_to "削除", @blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

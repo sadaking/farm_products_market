@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[show]
 
   #ブログ機能
-  resources :blogs, only: %i(index new create edit update destroy)
+  resources :blogs, only: %i(index new create show edit update destroy)
 
   #管理者
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

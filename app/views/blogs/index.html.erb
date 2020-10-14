@@ -9,11 +9,27 @@
     <% @blogs.each do |blog| %>
       <div class="card my-3">
         <div class="card-header alert-info">
-          ブログタイトル：<%= blog.title %>
+          <%= link_to blog_path(blog.id) do%>
+            <%= blog.title %>
+          <% end %>
+          <div class="float-right">
+            投稿日 : <%= blog.created_at.strftime("%Y年%m月%d日")%>
+          </div>
         </div>
         <div class="card-body">
-          <%= blog.content.html_safe %>
-          <% if blog.producer == current_producer %>
+          <div class="text-right text-primary">
+            <% if blog.user %>
+              <%= blog.user.name %>(消費者)
+            <% elsif blog.producer%>
+              <%= blog.producer.producer_name %>(農家)
+            <% end %>
+          </div>
+          <% if blog.user == current_user %>
+            <div class="text-right">
+              <%= link_to "編集", edit_blog_path(blog) %>
+              <%= link_to "削除", blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          <% elsif blog.producer == current_producer %>
             <div class="text-right">
               <%= link_to "編集", edit_blog_path(blog) %>
               <%= link_to "削除", blog, method: :delete, data: { confirm: 'Are you sure?' } %>
